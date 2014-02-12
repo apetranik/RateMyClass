@@ -1,8 +1,10 @@
+package RateMyClass;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
 public class RateView extends JPanel implements ActionListener {
+  public static int subjectNumber;
   public static String courseQuestion = "\n Which Course area do you want? Math, Sciece, English, Social Studies, Art, or P.E.?";
   public static String text;
   protected JTextField textField;
@@ -10,7 +12,8 @@ public class RateView extends JPanel implements ActionListener {
   
   public RateView() {
     super(new GridBagLayout());
-        
+    
+    textArea = new JTextArea(courseQuestion, 40, 80);
     textArea = new JTextArea(courseQuestion, 40, 80);
     
     textArea.setEditable(false);
@@ -20,8 +23,9 @@ public class RateView extends JPanel implements ActionListener {
     textField = new JTextField(80);
     
     textField.addActionListener(this);
-
-  
+    
+    
+    
     GridBagConstraints gridcon = new GridBagConstraints();
     gridcon.gridwidth = GridBagConstraints.REMAINDER;
     
@@ -42,14 +46,36 @@ public class RateView extends JPanel implements ActionListener {
   
   public void actionPerformed(ActionEvent evt) { //what happens to the stuff that is typed in
     text = textField.getText();
-    textArea.append(text);
+    // textArea.append(text); shows text that u have just typed after u press enter
     textField.selectAll();
-    if (text.equals("math")) {
-      System.out.println("it works!"); //just tests to make sure. It does!
+    String newText = text.toLowerCase();
+    if (newText.equals("math")) {
+      subjectNumber = 0; //just tests to make sure. It does!
+      textArea.append(RateDriver.mathCourses);
     }
-
+    else if (newText.equals("science")) {
+      subjectNumber = 1; 
+      textArea.append(RateDriver.scienceCourses);
+    }
+    else if (newText.equals("english")) {
+      subjectNumber = 2; 
+      textArea.append(RateDriver.englishCourses);
+    }
+    else if (newText.equals("social studies")) {
+      subjectNumber = 3; 
+      textArea.append(RateDriver.socialCourses);
+    }
+    else if (newText.equals("art")) {
+      subjectNumber = 4; 
+      textArea.append(RateDriver.courseSelection);
+    }
+    else if (newText.equals("pe")) {
+      subjectNumber = 5;
+      textArea.append(RateDriver.courseSelection);
+    }
+     
   }
- 
+  
   private static void createAndShowGUI() {
     // creates a window and calls it Rate My Class at the top
     JFrame frame = new JFrame("Rate My Class");
