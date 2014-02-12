@@ -18,8 +18,7 @@ public class RateQuestions {
     
   }
   public static int courseSelection() {
-    System.out.println(courseQuestion);
-
+    course = in.nextLine();
     course = course.toLowerCase();
     if (course.equals("math")) {
       courseNumber = 0;
@@ -42,6 +41,7 @@ public class RateQuestions {
       courseNumber = 5;
     }
     return courseNumber;
+
   }
   
 }
