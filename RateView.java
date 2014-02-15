@@ -50,50 +50,9 @@ public class RateView extends JPanel implements ActionListener {
     // textArea.append(text); shows text that u have just typed after u press enter
     
     String newText = text.toLowerCase(); 
-    
-    // controls what will be displayed for each subject
-    if (newText.equals("math")) {
-      textArea.setText("\nMATH\n-----------------------------\n");
-      textArea.append(RateDriver.mathCourses);
-    }
-    else if (newText.equals("science")) {
-      textArea.setText("\nSCIENCE\n-----------------------------\n");
-      textArea.append(RateDriver.scienceCourses);
-    }
-    else if (newText.equals("english")) {
-      textArea.setText("\nENGLISH\n-----------------------------\n");
-      textArea.append(RateDriver.englishCourses);
-    }
-    else if (newText.equals("social studies")) {
-      textArea.setText("\nSOCIAL STUDIES\n-----------------------------\n");
-      textArea.append(RateDriver.socialCourses);
-    }
-    else if (newText.equals("language")) {
-      textArea.setText("\nLANGUAGE\n-----------------------------\n");
-      language = true;
-      textArea.append(RateDriver.language1); 
-    }
-    
-    else if (newText.equals("chinese") && language == true) {
-      textArea.setText("\nCHINESE\n-----------------------------\n");
-      textArea.append(RateDriver.languageChinese);   
-      language = false;
-    }
-    else if (newText.equals("japanese") && language == true) {
-      textArea.setText("\nJAPANESE\n-----------------------------\n");
-      textArea.append(RateDriver.languageJapanese);
-    }
-    
-    else if (newText.equals("art")) {
-      textArea.setText("\nART\n-----------------------------\n");
-      textArea.append(RateDriver.courseSelection);
-      
-    }
-    else if (newText.equals("pe")) {
-      textArea.setText("");
-      textArea.append(RateDriver.courseSelection);
-    }
-    
+    textArea.setText("");
+    String text = RateDriver.getText(newText);
+    textArea.append(text);
   }
   
   private static void createAndShowGUI() { // creates the GUI
