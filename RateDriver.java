@@ -3,6 +3,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
+import java.util.ArrayList;
 
 import java.util.Scanner;
 
@@ -16,14 +17,18 @@ public class RateDriver {
   public static String questionFour = "On a scale of 1-10, how much did you enjoy the class?";
   public static String questionFive = "Would you recommend this course to someone else?";
   public static String courseSelection;
+  public static ArrayList<String> math = new ArrayList<String>();
   
   // runs the RateView Class
   public static void main(String[] args) {
+    
+    math.add("test1");
     String[] arguments = new String[] {"test"};
     RateView.main(arguments);
+
     
-       
   }
+  
   public static String getText(String newText) {
     return RateSubjectCourse.pickSubject(newText);
   }

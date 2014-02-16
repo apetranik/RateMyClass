@@ -10,7 +10,7 @@ public class RateView extends JPanel implements ActionListener {
   protected JTextField textField; // controls the text field - where user types text - is editable
   protected JTextArea textArea; // controls the text Area - where text is displayed
   Boolean language = false; //controls subset language
-
+  
   
   public RateView() {
     super(new GridBagLayout());
@@ -40,7 +40,9 @@ public class RateView extends JPanel implements ActionListener {
     add(scrollPane, gridcon); // allows text area to be displayed
     add(textField, gridcon); // allows text field to be displayed
     
+    
   }
+  
   
   public void actionPerformed(ActionEvent evt) { // controls action listener
     text = textField.getText(); //gets and saves text that the user types in
@@ -53,6 +55,10 @@ public class RateView extends JPanel implements ActionListener {
     textArea.setText("");
     String text = RateDriver.getText(newText);
     textArea.append(text);
+    JButton redButton = new JButton("Math");
+    redButton.setLocation(20, 100);
+    redButton.setSize(100, 30);
+
   }
   
   private static void createAndShowGUI() { // creates the GUI
@@ -64,7 +70,7 @@ public class RateView extends JPanel implements ActionListener {
     frame.add(new RateView());
     frame.pack();
     frame.setVisible(true);
-
+    
   }
   
   public static void main(String[] args) { // just displays the GUI like in grid world how it has to say "Show grid"
