@@ -3,13 +3,13 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
+import java.util.ArrayList;
 
 public class RateView extends JPanel implements ActionListener {
   public static String courseQuestion = RateDriver.courseQuestion;
   public static String text; // used to save the text that the user has entered
   protected JTextField textField; // controls the text field - where user types text - is editable
   protected JTextArea textArea; // controls the text Area - where text is displayed
-  Boolean language = false; //controls subset language
   
   
   public RateView() {
@@ -38,11 +38,8 @@ public class RateView extends JPanel implements ActionListener {
     gridcon.weighty = 1.0;
     
     add(scrollPane, gridcon); // allows text area to be displayed
-    add(textField, gridcon); // allows text field to be displayed
-    
-    
+    add(textField, gridcon); // allows text field to be displayed  
   }
-  
   
   public void actionPerformed(ActionEvent evt) { // controls action listener
     text = textField.getText(); //gets and saves text that the user types in
@@ -53,12 +50,14 @@ public class RateView extends JPanel implements ActionListener {
     
     String newText = text.toLowerCase(); 
     textArea.setText("");
-    String text = RateDriver.getText(newText);
-    textArea.append(text);
-    JButton redButton = new JButton("Math");
-    redButton.setLocation(20, 100);
-    redButton.setSize(100, 30);
-
+    
+    
+    for (int i = 0; i < RateDriver.getText(newText).length-1;i++) {
+      textArea.append(RateDriver.getText(newText)[i]+"\n");
+      
+    }
+    
+    
   }
   
   private static void createAndShowGUI() { // creates the GUI
