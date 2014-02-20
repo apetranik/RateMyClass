@@ -53,10 +53,7 @@ public class RateSurvey { //deals w/ stuff
     
   }
   
-  public static String[] pickSubject(String text) { 
-    
-    
-    
+  public static String[] pickSubject(String text) {     
     String newText = text.toLowerCase();
     if (newText.equals("math")) {
       level = 1;
@@ -139,6 +136,8 @@ public class RateSurvey { //deals w/ stuff
     else if (RateDriver.surveyNumber == 3) return questionFour;
     
     else if (RateDriver.surveyNumber == 4) return questionFive;   
+    
+    else return null;
   }
 }
 

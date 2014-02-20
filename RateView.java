@@ -50,12 +50,12 @@ public class RateView extends JPanel implements ActionListener {
     
     String newText = text.toLowerCase(); 
     textArea.setText("");
-    
-    
-    for (int i = 0; i < RateDriver.getText(newText).length-1;i++) {
-      textArea.append(RateDriver.getText(newText)[i]+"\n");
+    String[] realArray = RateDriver.getText(newText);
+    for (int i = 0; i < realArray.length;i++) {
+      textArea.append(realArray[i]+"\n");
       
     }
+    System.out.println("hi");
     
     
   }

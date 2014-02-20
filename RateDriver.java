@@ -23,8 +23,8 @@ public class RateDriver {
   }
   
   public static String[] getText(String newText) {  
-    RateSurvey.level++;
-    if (RateSurvey.level > 1) {
+    if (RateSurvey.level <= 1) {
+      RateSurvey.level++;
       return RateSurvey.pickSubject(newText);
     }
     
@@ -37,6 +37,7 @@ public class RateDriver {
       }
     }
   }
+
 }
 
 
