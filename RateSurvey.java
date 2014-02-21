@@ -1,4 +1,5 @@
 package RateMyClass;
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -15,21 +16,20 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
 import javax.swing.JFrame;
-
 import java.util.ArrayList;
 
 public class RateSurvey { //deals w/ stuff
   //will hold information from the surveys. 
   
   
-  public static String questionOne[] = new String[] {"\nSurvey Questions\n","On a scale of 1-10, how hard was/is the course overall?"};
-  public static String questionTwo[] = new String[] {"On average, how much homework did/do you have for this course?"};
-  public static String questionThree[] = new String[] {"On a scale of 1-10, how engaged did/do you feel in this course?"};
-  public static String questionFour[] = new String[] {"On a scale of 1-10, how much did you enjoy the class?"};
-  public static String questionFive[] = new String[] {"Would you recommend this course to someone else?"};
-  public static boolean survey = false;
-  public static boolean languagebarrier = true;
-  public static int level = 1;
+  public static String questionOne[] = new String[] {"\nSurvey Questions\n","On a scale of 1-10, how hard was/is the course overall?"}; //first survey question
+  public static String questionTwo[] = new String[] {"On average, how much homework did/do you have for this course?"}; //second survey question
+  public static String questionThree[] = new String[] {"On a scale of 1-10, how engaged did/do you feel in this course?"}; //third survey question
+  public static String questionFour[] = new String[] {"On a scale of 1-10, how much did you enjoy the class?"}; //fourth survey question
+  public static String questionFive[] = new String[] {"Would you recommend this course to someone else?"}; //fifth survey question
+  
+  public static int level = 1; //controls the level that the user is on (subject, course)
+  
   public static String math[] = new String[] {"MATH\n---------------------","Algebra 1","Geometry","Geometry H","Algebra 2","Algebra 2 H","Pre-Calculus","Advanced Pre-Calculus","Advanced Pre-Calculus H","AP Calculus AB","AP Calculus BC","Differential Calculus","Intro to Computer Science","AP Computer Science"}; //13
   public static String science[] = new String[] {"SCIENCE\n---------------------","Biology","Biology H.","AP Biology","Chemistry","Chemistry H.","AP Chemistry","Physics","Physics H","AP Physics 1/2","AP Physics C"}; //10
   public static String english[] = new String[] {"ENGLISH\n---------------------","English 1AB","English 2AB","American Lit: American Voices","American Lit: Jazz Age","American Lit: Nature","American Lit: Dreams and Disillusion","American Lit: Writing the Self","American Lit: American Studies","American Lit Honors","Arts and Letters","The Bible as Literature","British Literature","Buddhist Philosophy and the Game of Go","Composition","Creative Writing","Crime and Punishment","Fiction and Film","Journalsim","Science Fiction"}; //19

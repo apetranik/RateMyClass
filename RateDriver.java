@@ -20,26 +20,27 @@ public class RateDriver {
   // runs the RateView Class
   public static void main(String[] args) {
     String[] arguments = new String[] {"test"};
-    RateView.main(arguments);  
+    RateView.main(arguments); //runs view -- main method from RateView class
   }
   
   public static String[] getText(String newText) {  
-    if (RateSurvey.level <= 1) {
-      if (RateSurvey.level == 1) {
+    if (RateSurvey.level <= 1) { // checks level the user is on (subject or course)
+      
+      if (RateSurvey.level == 1) { //if they are still on the first level - then continue adding the new text. -- but create a text variable equal to their input that keeps track of what subject they chose.  
         levelText = newText;
-        return RateSurvey.pickSubject(newText);
+        return RateSurvey.pickSubject(newText); //returns what the pick subject method returns (String[])
       }
-      else return RateSurvey.pickSubject(newText);
+      else return RateSurvey.pickSubject(newText); // if they are not on the first level, then just continue to pick subject w/o changing the levelText variable
     }  
     else {
-      surveyNumber++;
-      if (surveyNumber == 5) {
-        return endSurvey;
+      surveyNumber++; // start the course survey
+      if (surveyNumber == 5) { //if the survey number is 5 (just finished the last question) -- then return the "Thanks for filling out the survey" text
+        return endSurvey; 
       }
       
-      else {
-        RateSurvey.surveySave(newText);
-        return RateSurvey.surveyQuestion(newText);
+      else { //if they are still filling out the survey 
+        RateSurvey.surveySave(newText); //calls the surveySave method that saves the users input into the array
+        return RateSurvey.surveyQuestion(newText); //then return the array w/ the proper question number in it
       }
     }
   }

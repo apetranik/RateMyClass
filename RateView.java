@@ -10,6 +10,7 @@ public class RateView extends JPanel implements ActionListener {
   public static String text; // used to save the text that the user has entered
   protected JTextField textField; // controls the text field - where user types text - is editable
   protected JTextArea textArea; // controls the text Area - where text is displayed
+  public static int binder = 0;
   
   
   public RateView() {
@@ -40,7 +41,7 @@ public class RateView extends JPanel implements ActionListener {
     add(scrollPane, gridcon); // allows text area to be displayed
     add(textField, gridcon); // allows text field to be displayed  
   }
-  
+
   public void actionPerformed(ActionEvent evt) { // controls action listener
     text = textField.getText(); //gets and saves text that the user types in
     
@@ -55,9 +56,16 @@ public class RateView extends JPanel implements ActionListener {
       textArea.append(realArray[i]+"\n");
       
     }
-    
+
+    if (realArray[0] == RateDriver.endSurvey[0]) {
+
+      textArea.append(RateDriver.endSurvey[0]); 
+
+    }
+    else {}
     
   }
+  
   
   private static void createAndShowGUI() { // creates the GUI
     
