@@ -55,7 +55,6 @@ public class RateView extends JPanel implements ActionListener {
       textArea.append(realArray[i]+"\n");
       
     }
-    System.out.println("hi");
     
     
   }
