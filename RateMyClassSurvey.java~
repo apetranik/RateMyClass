@@ -18,7 +18,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JFrame;
 import java.util.ArrayList;
 
-public class RateMyClassSurvey { //deals w/ stuff
+public class RateSurvey { //deals w/ stuff
   //will hold information from the surveys. 
   
   
@@ -44,23 +44,23 @@ public class RateMyClassSurvey { //deals w/ stuff
   public static String hawaiian[] = new String[] {"HAWAIIAN\n---------------------","Hawaii 1","Hawaiian 2","Hawaiian 3","Hawaiian 4"}; //4
   
   
-  public RateMyClassSurvey() {
+  public RateSurvey() {
   }
   
   public static String[] pickSubject(String text) {     
     String newText = text.toLowerCase();
     if (newText.equals("math")) {
-      RateMyClassDriver.levelText = newText;
+      RateDriver.levelText = newText;
       level++;
       return math;
     }
     else if (newText.equals("science")) {
-      RateMyClassDriver.levelText = newText;
+      RateDriver.levelText = newText;
       level++;
       return science;
     }
     else if (newText.equals("english")) {
-      RateMyClassDriver.levelText = newText;
+      RateDriver.levelText = newText;
       level++;
       return english;
     }
@@ -71,45 +71,45 @@ public class RateMyClassSurvey { //deals w/ stuff
       return language;
     }
     else if (newText.equals("social studies")) {
-      RateMyClassDriver.levelText = newText;
+      RateDriver.levelText = newText;
       level++;
       return social;
     }
     else if (newText.equals("art")) {
-      RateMyClassDriver.levelText = newText;
+      RateDriver.levelText = newText;
       level++;
       return art;
     }
     else if (newText.equals("pe")) {
-      RateMyClassDriver.levelText = newText;
+      RateDriver.levelText = newText;
       level++;
       return pe;
     }
     else if (newText.equals("chinese") && languagebarrier == true) {
-      RateMyClassDriver.levelText = newText;
+      RateDriver.levelText = newText;
       level++;
       return chinese;
     }
     else if (newText.equals("japanese") && languagebarrier == true) {
-     RateMyClassDriver.levelText = newText;
+      RateDriver.levelText = newText;
       level++;
       languagebarrier = false;
       return japanese;
     }
     else if (newText.equals("french") && languagebarrier == true) {
-     RateMyClassDriver.levelText = newText;
+      RateDriver.levelText = newText;
       level++;
       languagebarrier = false;
       return french;
     }
     else if (newText.equals("spanish") && languagebarrier == true) {
-     RateMyClassDriver.levelText = newText;
+      RateDriver.levelText = newText;
       level++;
       languagebarrier = false;
       return spanish;
     }
     else if (newText.equals("hawaiian") && languagebarrier == true) {
-     RateMyClassDriver.levelText = newText;
+      RateDriver.levelText = newText;
       level++;
       languagebarrier = false;
       return hawaiian;
@@ -122,7 +122,7 @@ public class RateMyClassSurvey { //deals w/ stuff
   public static void surveySave(String newText) {
     String courseID;
     int rating;
-    if (RateMyClassDriver.surveyNumber == 1) {
+    if (RateDriver.surveyNumber == 1) {
       courseID = newText;
     }
     else {
@@ -132,15 +132,15 @@ public class RateMyClassSurvey { //deals w/ stuff
   
   public static String[] surveyQuestion(String newText) {
 
-    if (RateMyClassDriver.surveyNumber == 1) return questionOne;
+    if (RateDriver.surveyNumber == 1) return questionOne;
     
-    else if (RateMyClassDriver.surveyNumber == 2) return questionTwo;
+    else if (RateDriver.surveyNumber == 2) return questionTwo;
     
-    else if (RateMyClassDriver.surveyNumber == 3) return questionThree;
+    else if (RateDriver.surveyNumber == 3) return questionThree;
     
-    else if (RateMyClassDriver.surveyNumber == 4) return questionFour;
+    else if (RateDriver.surveyNumber == 4) return questionFour;
     
-    else if (RateMyClassDriver.surveyNumber == 5) return questionFive;   
+    else if (RateDriver.surveyNumber == 5) return questionFive;   
     
     else return null;
   }

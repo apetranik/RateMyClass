@@ -5,15 +5,15 @@ import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.util.ArrayList;
 
-public class RateMyClassView extends JPanel implements ActionListener {
-  public static String courseQuestion = RateMyClassDriver.courseQuestion;
+public class RateView extends JPanel implements ActionListener {
+  public static String courseQuestion = RateDriver.courseQuestion;
   public static String text; // used to save the text that the user has entered
   protected JTextField textField; // controls the text field - where user types text - is editable
   protected JTextArea textArea; // controls the text Area - where text is displayed
   public static int binder = 0;
   
   
-  public RateMyClassView() {
+  public RateView() {
     super(new GridBagLayout());
     
     textArea = new JTextArea(courseQuestion, 20, 80); // adds a new text area w/ dimensions -- args = # rows
@@ -51,15 +51,15 @@ public class RateMyClassView extends JPanel implements ActionListener {
     
     String newText = text.toLowerCase(); 
     textArea.setText("");
-    String[] realArray = RateMyClassDriver.getText(newText);
+    String[] realArray = RateDriver.getText(newText);
     for (int i = 0; i < realArray.length;i++) {
       textArea.append(realArray[i]+"\n");
       
     }
 
-    if (realArray[0] == RateMyClassDriver.endSurvey[0]) {
+    if (realArray[0] == RateDriver.endSurvey[0]) {
 
-      textArea.append(RateMyClassDriver.endSurvey[0]); 
+      textArea.append(RateDriver.endSurvey[0]); 
 
     }
     else {}
@@ -73,7 +73,7 @@ public class RateMyClassView extends JPanel implements ActionListener {
     JFrame frame = new JFrame("Rate My Class"); // creates a window and labels it Rate My Class
     // allows all the windows and stuff above to be seen
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    frame.add(new RateMyClassView());
+    frame.add(new RateView());
     frame.pack();
     frame.setVisible(true);
     
