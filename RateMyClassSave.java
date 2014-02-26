@@ -3,85 +3,65 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class RateMyClassSave {
-  
-  public static int[][] survey = new int[6][40];
-  public static int[] surveyOne = new int[40];
-  public static int[] surveyTwo = new int[40];
-  public static int[] surveyThree = new int[40];
-  public static int[] surveyFour = new int[40];
-  public static int[] surveyFive = new int[40];
-  
+  private static ArrayList<courses> allCourses = new ArrayList<courses>();
   public RateMyClassSave() {
-    survey[0] = surveyOne;
-    survey[1] = surveyTwo;
-    survey[2] = surveyThree;
-    survey[3] = surveyFour;
-    survey[4] = surveyFive;
-    
-    
+    allCourses.add(new courses("algebra 1"));
+    allCourses.add(new courses("geometry"));
+    allCourses.add(new courses("geometry h."));
+    allCourses.add(new courses("algebra 2"));
+    allCourses.add(new courses("algebra 2 h."));
+    allCourses.add(new courses("pre-calculus"));
+    allCourses.add(new courses("advanced pre-calculus"));
+    allCourses.add(new courses("advanced pre-calculus h."));
+    allCourses.add(new courses("ap calculus ab"));
+    allCourses.add(new courses("ap calculus bc"));
+    allCourses.add(new courses("differential calculus"));
+    allCourses.add(new courses("intro to computer science"));
+    allCourses.add(new courses("ap computer science"));
+    allCourses.add(new courses("biology"));
+    allCourses.add(new courses("biology h."));
+    allCourses.add(new courses("ap biology"));
+    allCourses.add(new courses("chemistry"));
+    allCourses.add(new courses("chemistry h."));
+    allCourses.add(new courses("ap chemistry"));
+    allCourses.add(new courses("physics"));
+    allCourses.add(new courses("physics h."));
+    allCourses.add(new courses("ap physics 1/2"));
+    allCourses.add(new courses("ap physics c"));
+    allCourses.add(new courses("English 1AB"));
+    allCourses.add(new courses("English 2AB"));
+    allCourses.add(new courses("American Lit: American Voices"));
+    allCourses.add(new courses("American Lit: Jazz Age"));
+    allCourses.add(new courses("American Lit: Nature"));
+    allCourses.add(new courses("American Lit: Dreams and Disillusion"));
+    allCourses.add(new courses("American Lit: Writing the Self"));
+    allCourses.add(new courses("American Lit: American Studies"));
+    allCourses.add(new courses("American Lit Honors"));
+    allCourses.add(new courses("Arts and Letters"));
+    allCourses.add(new courses("The Bible as Literature"));
+    allCourses.add(new courses("British Literature"));
+    allCourses.add(new courses("Buddhist Philosophy and the Game of Go"));
+    allCourses.add(new courses("Composition"));
+    allCourses.add(new courses("Creative Writing"));
+    allCourses.add(new courses("Crime and Punishment"));
+    allCourses.add(new courses("Fiction and Film"));
+    allCourses.add(new courses("Journalsim"));
+    allCourses.add(new courses("Science Fiction"));
+    allCourses.add(new courses("ISS"));
+    allCourses.add(new courses("Contemporary Issues"));
+    allCourses.add(new courses("World Civilizations"));
+    allCourses.add(new courses("Hawaiian Culture"));
+    allCourses.add(new courses("Hawaiian Culture 2"));
+    allCourses.add(new courses("Medieval History"));
+    allCourses.add(new courses("Asian History"));
+    allCourses.add(new courses("US History"));
+    allCourses.add(new courses("AP US History"));
+    allCourses.add(new courses("AP US Government and Politics"));
+    allCourses.add(new courses("European History"));
+    allCourses.add(new courses("European History Through the Arts"));
+    allCourses.add(new courses("AP European History"));
+    allCourses.add(new courses("CapSEEDS"));
   }
-  public static int findNumber(String course, int currentQuestion) {
-    String newCourse = course.toLowerCase();
-    
-    if (RateMyClassDriver.levelText.equals("math")) {
-      for (int i = 0; i < RateMyClassSurvey.math.length-1;i++) {
-        if (newCourse.equals(RateMyClassSurvey.math[i])) return survey[currentQuestion][i];
-      }
-    }
-    
-    else if (RateMyClassDriver.levelText.equals("science")) {
-      for (int i = 0; i < RateMyClassSurvey.science.length-1;i++) {
-        if (newCourse.equals(RateMyClassSurvey.science[i])) return survey[currentQuestion][i];
-        
-      }
-    }
-    else if (RateMyClassDriver.levelText.equals("english")) {
-      for (int i = 0; i < RateMyClassSurvey.english.length-1;i++) {
-        if (newCourse.equals(RateMyClassSurvey.english[i])) return survey[currentQuestion][i];
-        
-      }
-    }
-    else if (RateMyClassDriver.levelText.equals("social studies")) {
-      for (int i = 0; i < RateMyClassSurvey.social.length-1;i++) {
-        if (newCourse.equals(RateMyClassSurvey.social[i]))  return survey[currentQuestion][i];
-      }
-    }
-    else if (RateMyClassDriver.levelText.equals("art")) {
-      for (int i = 0; i < RateMyClassSurvey.art.length-1;i++) {
-        if (newCourse.equals(RateMyClassSurvey.art[i])) return survey[currentQuestion][i];
-      } 
-    }
-    else if (RateMyClassDriver.levelText.equals("pe")) {
-      for (int i = 0; i < RateMyClassSurvey.pe.length-1;i++) {
-        if (newCourse.equals(RateMyClassSurvey.pe[i])) return survey[currentQuestion][i];
-      }
-    }
-    else if (RateMyClassDriver.levelText.equals("chinese")) {
-      for (int i = 0; i < RateMyClassSurvey.chinese.length-1;i++) {
-        if (newCourse.equals(RateMyClassSurvey.chinese[i])) return survey[currentQuestion][i];
-      }
-    }
-    else if (RateMyClassDriver.levelText.equals("japanese")) {
-      for (int i = 0; i < RateMyClassSurvey.japanese.length-1;i++) {
-        if (newCourse.equals(RateMyClassSurvey.japanese[i])) return survey[currentQuestion][i];
-      }
-    }
-    else if (RateMyClassDriver.levelText.equals("french")) {
-      for (int i = 0; i < RateMyClassSurvey.french.length-1;i++) {
-        if (newCourse.equals(RateMyClassSurvey.french[i])) return survey[currentQuestion][i];
-      }
-    }
-    else if (RateMyClassDriver.levelText.equals("spanish")) {
-      for (int i = 0; i < RateMyClassSurvey.spanish.length-1;i++) {
-        if (newCourse.equals(RateMyClassSurvey.spanish[i])) return survey[currentQuestion][i];
-      }
-    }
-    else if (RateMyClassDriver.levelText.equals("hawaiian")) {
-      for (int i = 0; i < RateMyClassSurvey.hawaiian.length-1;i++) {
-        if (newCourse.equals(RateMyClassSurvey.hawaiian[i])) return survey[currentQuestion][i];
-      }
-    }
-    return 100;
-  }
+  
 }
 
