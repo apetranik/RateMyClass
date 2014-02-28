@@ -21,98 +21,85 @@ import java.util.ArrayList;
 public class RateMyClassSurvey { //deals w/ stuff
   //will hold information from the surveys. 
   
-  
-  public static String questionOne[] = new String[] {"\nSurvey Questions\n","On a scale of 1-10, how hard was/is the course overall?"}; //first survey question
-  public static String questionTwo[] = new String[] {"On average, how much homework did/do you have for this course?"}; //second survey question
-  public static String questionThree[] = new String[] {"On a scale of 1-10, how engaged did/do you feel in this course?"}; //third survey question
-  public static String questionFour[] = new String[] {"On a scale of 1-10, how much did you enjoy the class?"}; //fourth survey question
-  public static String questionFive[] = new String[] {"Would you recommend this course to someone else?"}; //fifth survey question
+  private static ArrayList<String> surveyQuestions = new ArrayList<String>();
   public static Boolean languagebarrier = false;
   public static int level = 1; //controls the level that the user is on (subject, course)
   
-  public static String math[] = new String[] {"MATH\n---------------------","Algebra 1","Geometry","Geometry H","Algebra 2","Algebra 2 H","Pre-Calculus","Advanced Pre-Calculus","Advanced Pre-Calculus H","AP Calculus AB","AP Calculus BC","Differential Calculus","Intro to Computer Science","AP Computer Science"}; //13
-  public static String science[] = new String[] {"SCIENCE\n---------------------","Biology","Biology H.","AP Biology","Chemistry","Chemistry H.","AP Chemistry","Physics","Physics H","AP Physics 1/2","AP Physics C"}; //10
-  public static String english[] = new String[] {"ENGLISH\n---------------------","English 1AB","English 2AB","American Lit: American Voices","American Lit: Jazz Age","American Lit: Nature","American Lit: Dreams and Disillusion","American Lit: Writing the Self","American Lit: American Studies","American Lit Honors","Arts and Letters","The Bible as Literature","British Literature","Buddhist Philosophy and the Game of Go","Composition","Creative Writing","Crime and Punishment","Fiction and Film","Journalsim","Science Fiction"}; //19
-  public static String social[] = new String[] {"SOCIAL STUDIES\n---------------------","ISS","Contemporary Issues","World Civilizations","Hawaiian Culture","Hawaiian Culture 2","Medieval History","Asian History","US History","AP US History","AP US Government and Politics","European History","European History Through the Arts","AP European History","CapSEEDS"}; //14
-  public static String language[] = new String[] {"LANGUAGE\n---------------------","Chinese","Japanese","French","Spanish","Hawaiian"};
-  public static String art[] = new String[] {"ART\n---------------------","Drawing 1","Drawing 2","Life Drawing","Painting 1","Painting 2","Printmaking","Color Digital Photography","Black and White Film","Photography 2","Digital Art","Digital Video","Ceramics: Handbuilding","Ceramics: Wheel Throwing 1","Ceramics: Wheel Throwing 2","Glass Blowing 1","Glass Blowing 2"}; //16
-  public static String pe[] = new String[] {"PE\n---------------------","Lifetime Fitness","ISPE: Basic Yoga Plus","ISPE: Field Sports","ISPE: Indoor Sports","ISPE: PEP","ISPE: Raquetball/Tennis","ISPE: Water Sports","ISPE: Yoga 1","ISPE: Yoga 2","ASPE"}; //10
-  public static String chinese[] = new String[] {"CHINESE\n---------------------","Chinese 1","Chinese 2","Chinese 2H","Chinese 3","Chinese 3H","Chinese 4","Chinese 4H","Chinese 5","Chinese 5H"}; //9
-  public static String japanese[] = new String[] {"JAPANESE\n---------------------","Japanese 1","Japanese 2","Japanese 2H","Japanese 3","Japanese 3H","Japanese 4","Japanese 4H","Japanese 5","Japanese 5H"}; //9
-  public static String french[] = new String[] {"FRENCH\n---------------------","French 1","French 2","French 2H","French 3","French 3H","French 4","French 4H","French 5","French 5 AP"}; //9
-  public static String spanish[] = new String[] {"SPANISH\n---------------------","Spanish 1","Spanish 2","Spanish 2H","Spanish 3","Spanish 3H","Spanish 4","Spanish 4H","Spanish 5","Spanish 5H"}; //9
-  public static String hawaiian[] = new String[] {"HAWAIIAN\n---------------------","Hawaii 1","Hawaiian 2","Hawaiian 3","Hawaiian 4"}; //4
-  
-  
   public RateMyClassSurvey() {
+    surveyQuestions.add("\nSurvey Questions\n");
+    surveyQuestions.add("On a scale of 1-10, how hard was/is the course overall?");
+    surveyQuestions.add("On average, how much homework did/do you have for this course?");
+    surveyQuestions.add("On a scale of 1-10, how engaged did/do you feel in this course?");
+    surveyQuestions.add("On a scale of 1-10, how much did you enjoy the class?");
+    surveyQuestions.add("Would you recommend this course to someone else?");
   }
   
-  public static String[] pickSubject(String text) {     
+  public static ArrayList pickSubject(String text) {     
     String newText = text.toLowerCase();
     if (newText.equals("math")) {
       RateMyClassDriver.levelText = newText;
       level++;
-      return math;
+      return RateMyClassSave.getArray(0,12);
     }
     else if (newText.equals("science")) {
       RateMyClassDriver.levelText = newText;
       level++;
-      return science;
+      return RateMyClassSave.getArray(13,22);
     }
     else if (newText.equals("english")) {
       RateMyClassDriver.levelText = newText;
       level++;
-      return english;
+      return RateMyClassSave.getArray(23,41);
     }
     else if (newText.equals("language")) {
-
+      
       level = 1;
       languagebarrier = true;
-      return language;
+      return RateMyClassSave.getArray(122,126);
     }
     else if (newText.equals("social studies")) {
       RateMyClassDriver.levelText = newText;
       level++;
-      return social;
+      return RateMyClassSave.getArray(42,55);
     }
     else if (newText.equals("art")) {
       RateMyClassDriver.levelText = newText;
       level++;
-      return art;
+      return RateMyClassSave.getArray(56,71);
     }
     else if (newText.equals("pe")) {
       RateMyClassDriver.levelText = newText;
       level++;
-      return pe;
+      return RateMyClassSave.getArray(72,81);
     }
     else if (newText.equals("chinese") && languagebarrier == true) {
       RateMyClassDriver.levelText = newText;
       level++;
-      return chinese;
+      return RateMyClassSave.getArray(82,90);
     }
     else if (newText.equals("japanese") && languagebarrier == true) {
-     RateMyClassDriver.levelText = newText;
+      RateMyClassDriver.levelText = newText;
       level++;
       languagebarrier = false;
-      return japanese;
+      return RateMyClassSave.getArray(91,99);
     }
     else if (newText.equals("french") && languagebarrier == true) {
-     RateMyClassDriver.levelText = newText;
+      RateMyClassDriver.levelText = newText;
       level++;
       languagebarrier = false;
-      return french;
+      return RateMyClassSave.getArray(100,108);
     }
     else if (newText.equals("spanish") && languagebarrier == true) {
-     RateMyClassDriver.levelText = newText;
+      RateMyClassDriver.levelText = newText;
       level++;
       languagebarrier = false;
-      return spanish;
+      return RateMyClassSave.getArray(109,117);
     }
     else if (newText.equals("hawaiian") && languagebarrier == true) {
-     RateMyClassDriver.levelText = newText;
+      RateMyClassDriver.levelText = newText;
       level++;
       languagebarrier = false;
-      return hawaiian;
+      return RateMyClassSave.getArray(118,121);
     }
     else { 
       return null;
@@ -130,17 +117,17 @@ public class RateMyClassSurvey { //deals w/ stuff
     }
   }
   
-  public static String[] surveyQuestion(String newText) {
-
-    if (RateMyClassDriver.surveyNumber == 1) return questionOne;
+  public static ArrayList surveyQuestion(String newText) {
     
-    else if (RateMyClassDriver.surveyNumber == 2) return questionTwo;
+    if (RateMyClassDriver.surveyNumber == 1) return surveyQuestions;
     
-    else if (RateMyClassDriver.surveyNumber == 3) return questionThree;
+    else if (RateMyClassDriver.surveyNumber == 2) return surveyQuestions;
     
-    else if (RateMyClassDriver.surveyNumber == 4) return questionFour;
+    else if (RateMyClassDriver.surveyNumber == 3) return surveyQuestions;
     
-    else if (RateMyClassDriver.surveyNumber == 5) return questionFive;   
+    else if (RateMyClassDriver.surveyNumber == 4) return surveyQuestions;
+    
+    else if (RateMyClassDriver.surveyNumber == 5) return surveyQuestions;   
     
     else return null;
   }

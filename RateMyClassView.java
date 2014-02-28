@@ -51,15 +51,15 @@ public class RateMyClassView extends JPanel implements ActionListener {
     
     String newText = text.toLowerCase(); 
     textArea.setText("");
-    String[] realArray = RateMyClassDriver.getText(newText);
-    for (int i = 0; i < realArray.length;i++) {
-      textArea.append(realArray[i]+"\n");
+    ArrayList<String> realArray = RateMyClassDriver.getText(newText);
+    for (int i = 0; i < realArray.size();i++) {
+      textArea.append(realArray.get(i)+"\n");
       
     }
 
-    if (realArray[0] == RateMyClassDriver.endSurvey[0]) {
+    if (realArray.get(0) == RateMyClassDriver.endSurvey.get(0)) {
 
-      textArea.append(RateMyClassDriver.endSurvey[0]); 
+      textArea.append(RateMyClassDriver.endSurvey.get(0)); 
 
     }
     else {}

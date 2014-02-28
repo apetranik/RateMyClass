@@ -11,18 +11,19 @@ public class RateMyClassDriver {
   public static Scanner in = new Scanner(System.in);
   public static String courseQuestion = "Which Course area do you want? \n\nMath,  Science,  English,  Language, Social Studies,  Art, or P.E.?\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n** Please use same spelling as words on screen";
   public static int surveyNumber = 0;
-  public static String[] endSurvey = new String[] {"Thanks for filling out the survey!"};
+  public static ArrayList<String> endSurvey = new ArrayList<String>();
   public static String levelText = "";
   
   
   
   // runs the RateView Class
   public static void main(String[] args) {
+    endSurvey.add("Thanks for filling out the survey");
     String[] arguments = new String[] {"test"};
     RateMyClassView.main(arguments); //runs view -- main method from RateView class
   }
   
-  public static String[] getText(String newText) {  
+  public static ArrayList getText(String newText) {  
     if (RateMyClassSurvey.level <= 1) { // checks level the user is on (subject or course)
       
       if (RateMyClassSurvey.level == 1) { //if they are still on the first level - then continue adding the new text. -- but create a text variable equal to their input that keeps track of what subject they chose.  
