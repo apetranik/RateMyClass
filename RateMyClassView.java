@@ -11,6 +11,8 @@ public class RateMyClassView extends JPanel implements ActionListener {
   protected JTextField textField; // controls the text field - where user types text - is editable
   protected JTextArea textArea; // controls the text Area - where text is displayed
   public static int binder = 0;
+  private static ArrayList<String> realArray = new ArrayList<String>();
+  
   
   
   public RateMyClassView() {
@@ -41,36 +43,28 @@ public class RateMyClassView extends JPanel implements ActionListener {
     add(scrollPane, gridcon); // allows text area to be displayed
     add(textField, gridcon); // allows text field to be displayed  
   }
-
+  
   public void actionPerformed(ActionEvent evt) { // controls action listener
     text = textField.getText(); //gets and saves text that the user types in
-    
     textField.selectAll();
-    
-    // textArea.append(text); shows text that u have just typed after u press enter
-    
-    String newText = text.toLowerCase(); 
     textArea.setText("");
-    ArrayList<String> realArray = RateMyClassDriver.getText(newText);
-    for (int i = 0; i < realArray.size();i++) {
+    String newText = text.toLowerCase(); 
+    realArray = RateMyClassDriver.getText(newText);
+    int firstNumber = RateMyClassSurvey.getfirstNumber();
+    System.out.println(realArray.size()); 
+    for (int i = firstNumber; i < realArray.size();i++) {
       textArea.append(realArray.get(i)+"\n");
-      
-    }
-
-    if (realArray.get(0) == RateMyClassDriver.endSurvey.get(0)) {
-
-      textArea.append(RateMyClassDriver.endSurvey.get(0)); 
-
-    }
-    else {}
-    
+      System.out.println(i);
+    } 
+    System.out.println("hi");
   }
+  
   
   
   private static void createAndShowGUI() { // creates the GUI
     
     
-    JFrame frame = new JFrame("Rate My Class"); // creates a window and labels it Rate My Class
+    JFrame frame = new JFrame("Rate My Class Application"); // creates a window and labels it Rate My Class
     // allows all the windows and stuff above to be seen
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     frame.add(new RateMyClassView());

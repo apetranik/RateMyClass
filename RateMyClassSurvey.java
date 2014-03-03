@@ -24,6 +24,9 @@ public class RateMyClassSurvey { //deals w/ stuff
   private static ArrayList<String> surveyQuestions = new ArrayList<String>();
   public static Boolean languagebarrier = false;
   public static int level = 1; //controls the level that the user is on (subject, course)
+  private static ArrayList<String> finalArray = new ArrayList<String>();
+  private static int firstNumber;
+  
   
   public RateMyClassSurvey() {
     surveyQuestions.add("\nSurvey Questions\n");
@@ -34,74 +37,90 @@ public class RateMyClassSurvey { //deals w/ stuff
     surveyQuestions.add("Would you recommend this course to someone else?");
   }
   
-  public static ArrayList pickSubject(String text) {     
+  public static ArrayList<String> pickSubject(String text) {     
     String newText = text.toLowerCase();
     if (newText.equals("math")) {
-      RateMyClassDriver.levelText = newText;
       level++;
-      return RateMyClassSave.getArray(0,12);
+      finalArray = RateMyClassSave.getArray(0,13);
+      RateMyClassDriver.isRight = true;
+      firstNumber = 0;
+      return finalArray;
+      
     }
     else if (newText.equals("science")) {
-      RateMyClassDriver.levelText = newText;
       level++;
-      return RateMyClassSave.getArray(13,22);
+      RateMyClassDriver.isRight = true;
+      firstNumber = 14;
+      return RateMyClassSave.getArray(14,24);
     }
     else if (newText.equals("english")) {
-      RateMyClassDriver.levelText = newText;
       level++;
-      return RateMyClassSave.getArray(23,41);
+      RateMyClassDriver.isRight = true;
+      finalArray = RateMyClassSave.getArray(25,44);
+      firstNumber = 25;
+      return finalArray;
     }
     else if (newText.equals("language")) {
-      
       level = 1;
+      RateMyClassDriver.isRight = true;
       languagebarrier = true;
-      return RateMyClassSave.getArray(122,126);
+      firstNumber = 135;
+      return RateMyClassSave.getArray(135,141);
     }
     else if (newText.equals("social studies")) {
-      RateMyClassDriver.levelText = newText;
       level++;
-      return RateMyClassSave.getArray(42,55);
+      RateMyClassDriver.isRight = true;
+      firstNumber = 45;
+      return RateMyClassSave.getArray(45,59);
     }
     else if (newText.equals("art")) {
-      RateMyClassDriver.levelText = newText;
       level++;
-      return RateMyClassSave.getArray(56,71);
+      RateMyClassDriver.isRight = true;
+      firstNumber = 60;
+      return RateMyClassSave.getArray(60,76);
     }
     else if (newText.equals("pe")) {
-      RateMyClassDriver.levelText = newText;
       level++;
-      return RateMyClassSave.getArray(72,81);
+      RateMyClassDriver.isRight = true;
+      firstNumber = 77;
+      return RateMyClassSave.getArray(77,88);
     }
     else if (newText.equals("chinese") && languagebarrier == true) {
-      RateMyClassDriver.levelText = newText;
       level++;
-      return RateMyClassSave.getArray(82,90);
+      RateMyClassDriver.isRight = true;
+      firstNumber = 89;
+      return RateMyClassSave.getArray(89,98);
     }
     else if (newText.equals("japanese") && languagebarrier == true) {
-      RateMyClassDriver.levelText = newText;
       level++;
       languagebarrier = false;
-      return RateMyClassSave.getArray(91,99);
+      RateMyClassDriver.isRight = true;
+      firstNumber = 99;
+      return RateMyClassSave.getArray(99,108);
     }
     else if (newText.equals("french") && languagebarrier == true) {
-      RateMyClassDriver.levelText = newText;
       level++;
       languagebarrier = false;
-      return RateMyClassSave.getArray(100,108);
+      RateMyClassDriver.isRight = true;
+      firstNumber = 109;
+      return RateMyClassSave.getArray(109,118);
     }
     else if (newText.equals("spanish") && languagebarrier == true) {
-      RateMyClassDriver.levelText = newText;
       level++;
       languagebarrier = false;
-      return RateMyClassSave.getArray(109,117);
+      RateMyClassDriver.isRight = true;
+      firstNumber = 119;
+      return RateMyClassSave.getArray(119,128);
     }
     else if (newText.equals("hawaiian") && languagebarrier == true) {
-      RateMyClassDriver.levelText = newText;
       level++;
       languagebarrier = false;
-      return RateMyClassSave.getArray(118,121);
+      RateMyClassDriver.isRight = true;
+      firstNumber = 129;
+      return RateMyClassSave.getArray(129,134);
     }
     else { 
+      RateMyClassDriver.isRight = false;
       return null;
     }
     
@@ -117,7 +136,7 @@ public class RateMyClassSurvey { //deals w/ stuff
     }
   }
   
-  public static ArrayList surveyQuestion(String newText) {
+  public static ArrayList<String> surveyQuestion(String newText) {
     
     if (RateMyClassDriver.surveyNumber == 1) return surveyQuestions;
     
@@ -130,6 +149,9 @@ public class RateMyClassSurvey { //deals w/ stuff
     else if (RateMyClassDriver.surveyNumber == 5) return surveyQuestions;   
     
     else return null;
+  }
+  public static int getfirstNumber() {
+    return firstNumber;
   }
 }
 
