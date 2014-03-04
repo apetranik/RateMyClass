@@ -1,3 +1,5 @@
+// Rate My Class View
+
 package RateMyClass;
 import java.awt.*;
 import java.awt.event.*;
@@ -47,14 +49,12 @@ public class RateMyClassView extends JPanel implements ActionListener {
   public void actionPerformed(ActionEvent evt) { // controls action listener
     text = textField.getText(); //gets and saves text that the user types in
     textField.selectAll();
-    textArea.setText("");
-    String newText = text.toLowerCase(); 
+    textArea.setText(""); // clears text field
+    String newText = text.toLowerCase(); // sets text to lowercase
     realArray = RateMyClassDriver.getText(newText);
-    int firstNumber = RateMyClassSurvey.getfirstNumber();
-    System.out.println(realArray.size()); 
-    for (int i = firstNumber; i < realArray.size();i++) {
+    
+    for (int i = RateMyClassSurvey.firstNumber; i < RateMyClassSurvey.lastNumber;i++) {
       textArea.append(realArray.get(i)+"\n");
-      System.out.println(i);
     } 
     System.out.println("hi");
   }
