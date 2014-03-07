@@ -47,23 +47,21 @@ public class RateMyClassView extends JPanel implements ActionListener {
   }
   
   public void actionPerformed(ActionEvent evt) { // controls action listener
+    textArea.setText("");
     text = textField.getText(); //gets and saves text that the user types in
     textField.selectAll();
-    textArea.setText(""); // clears text field
-    String newText = text.toLowerCase(); // sets text to lowercase
-    realArray = RateMyClassDriver.getText(newText);
     
-    for (int i = RateMyClassSurvey.firstNumber; i < RateMyClassSurvey.lastNumber;i++) {
+    String newText = text.toLowerCase(); // sets text to lowercase
+    
+    realArray = RateMyClassDriver.getText(newText);
+    for (int i = 0; i < realArray.size(); i++) {
       textArea.append(realArray.get(i)+"\n");
     } 
-    System.out.println("hi");
+    
   }
-  
-  
+ 
   
   private static void createAndShowGUI() { // creates the GUI
-    
-    
     JFrame frame = new JFrame("Rate My Class Application"); // creates a window and labels it Rate My Class
     // allows all the windows and stuff above to be seen
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

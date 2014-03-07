@@ -1,136 +1,120 @@
 package RateMyClass;
-
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
-import javax.swing.border.LineBorder;
-import javax.swing.JMenu;
-import javax.swing.JMenuItem;
-import javax.swing.JCheckBoxMenuItem;
-import javax.swing.JRadioButtonMenuItem;
-import javax.swing.ButtonGroup;
-import javax.swing.JMenuBar;
-import javax.swing.KeyStroke;
-import javax.swing.ImageIcon;
-import javax.swing.JPanel;
-import javax.swing.JTextArea;
-import javax.swing.JScrollPane;
-import javax.swing.JFrame;
 import java.util.ArrayList;
 
-public class RateMyClassSurvey { //deals w/ stuff
-  //will hold information from the surveys. 
+public class RateMyClassSurvey {
+  private static ArrayList<String> surveyQuestions = new ArrayList<String>(); // ArrayList of the 5 survey questions
+  public static Boolean languagebarrier = false; // controls whether or not the user is in the language menu
+  public static int firstNumber = 0; // first index for selected subject
+  public static int lastNumber = 0; // last index for selected subject
+  public static int level = 1;
+  public static int surveylevel = 0;
+  public static ArrayList<String> questionFinal = new ArrayList<String>();
   
-  private static ArrayList<String> surveyQuestions = new ArrayList<String>();
-  public static Boolean languagebarrier = false;
-  public static int level = 1; //controls the level that the user is on (subject, course)
-  
+  // sets survey questions
   public RateMyClassSurvey() {
-    surveyQuestions.add("\nSurvey Questions\n");
+
+  }
+  
+  // returns array of subject courses based on user input
+  public static ArrayList<String> pickSubject(String text) {  
+    surveyQuestions.add("\nSurvey Questions - Press enter to continue\n");
     surveyQuestions.add("On a scale of 1-10, how hard was/is the course overall?");
     surveyQuestions.add("On average, how much homework did/do you have for this course?");
     surveyQuestions.add("On a scale of 1-10, how engaged did/do you feel in this course?");
     surveyQuestions.add("On a scale of 1-10, how much did you enjoy the class?");
     surveyQuestions.add("Would you recommend this course to someone else?");
-  }
-  
-  public static ArrayList pickSubject(String text) {     
-    String newText = text.toLowerCase();
-    if (newText.equals("math")) {
-      RateMyClassDriver.levelText = newText;
+    questionFinal.add("");
+    String newText = text.toLowerCase(); // takes user input (text) and changes it to lowercase
+    if (newText.equals("math")) { // if the user typed math
+      firstNumber = 0; // sets variable to first index number of subject "math"
+      lastNumber = 14;
       level++;
-      return RateMyClassSave.getArray(0,12);
+      return RateMyClassSave.getArray(0,13); //returns getArray method which is an ArrayList of Strings from specified indexes (0,13) in allCourses ArrayList.
     }
     else if (newText.equals("science")) {
-      RateMyClassDriver.levelText = newText;
+      firstNumber = 14;
+      lastNumber = 25;
       level++;
-      return RateMyClassSave.getArray(13,22);
+      return RateMyClassSave.getArray(14,24);
     }
     else if (newText.equals("english")) {
-      RateMyClassDriver.levelText = newText;
+      firstNumber = 25;
+      lastNumber = 45;
       level++;
-      return RateMyClassSave.getArray(23,41);
+      return RateMyClassSave.getArray(25,44);
     }
     else if (newText.equals("language")) {
-      
-      level = 1;
       languagebarrier = true;
-      return RateMyClassSave.getArray(122,126);
+      firstNumber = 135;
+      lastNumber = 142;
+      return RateMyClassSave.getArray(135,141);
     }
     else if (newText.equals("social studies")) {
-      RateMyClassDriver.levelText = newText;
+      firstNumber = 45;
+      lastNumber = 60;
       level++;
-      return RateMyClassSave.getArray(42,55);
+      return RateMyClassSave.getArray(45,59);
     }
     else if (newText.equals("art")) {
-      RateMyClassDriver.levelText = newText;
+      firstNumber = 60;
       level++;
-      return RateMyClassSave.getArray(56,71);
+      return RateMyClassSave.getArray(60,76);
     }
     else if (newText.equals("pe")) {
-      RateMyClassDriver.levelText = newText;
+      firstNumber = 77;
+      lastNumber = 89;
       level++;
-      return RateMyClassSave.getArray(72,81);
+      return RateMyClassSave.getArray(77,88);
     }
     else if (newText.equals("chinese") && languagebarrier == true) {
-      RateMyClassDriver.levelText = newText;
+      firstNumber = 89;
+      lastNumber = 99;
       level++;
-      return RateMyClassSave.getArray(82,90);
+      return RateMyClassSave.getArray(89,98);
     }
     else if (newText.equals("japanese") && languagebarrier == true) {
-      RateMyClassDriver.levelText = newText;
-      level++;
       languagebarrier = false;
-      return RateMyClassSave.getArray(91,99);
+      firstNumber = 99;
+      lastNumber = 109;
+      level++;
+      return RateMyClassSave.getArray(99,108);
     }
     else if (newText.equals("french") && languagebarrier == true) {
-      RateMyClassDriver.levelText = newText;
-      level++;
       languagebarrier = false;
-      return RateMyClassSave.getArray(100,108);
+      firstNumber = 109;
+      lastNumber = 119;
+      level++;
+      return RateMyClassSave.getArray(109,118);
     }
     else if (newText.equals("spanish") && languagebarrier == true) {
-      RateMyClassDriver.levelText = newText;
-      level++;
       languagebarrier = false;
-      return RateMyClassSave.getArray(109,117);
+      firstNumber = 119;
+      lastNumber = 129;
+      level++;
+      return RateMyClassSave.getArray(119,128);
     }
     else if (newText.equals("hawaiian") && languagebarrier == true) {
-      RateMyClassDriver.levelText = newText;
-      level++;
       languagebarrier = false;
-      return RateMyClassSave.getArray(118,121);
+      firstNumber = 129;
+      lastNumber = 135;
+      level++;
+      return RateMyClassSave.getArray(129,134);
     }
-    else { 
-      return null;
-    }
     
-  }
-  public static void surveySave(String newText) {
-    String courseID;
-    int rating;
-    if (RateMyClassDriver.surveyNumber == 1) {
-      courseID = newText;
-    }
-    else {
-      rating = Integer.parseInt(newText); 
-    }
-  }
-  
-  public static ArrayList surveyQuestion(String newText) {
-    
-    if (RateMyClassDriver.surveyNumber == 1) return surveyQuestions;
-    
-    else if (RateMyClassDriver.surveyNumber == 2) return surveyQuestions;
-    
-    else if (RateMyClassDriver.surveyNumber == 3) return surveyQuestions;
-    
-    else if (RateMyClassDriver.surveyNumber == 4) return surveyQuestions;
-    
-    else if (RateMyClassDriver.surveyNumber == 5) return surveyQuestions;   
-    
-    else return null;
+    else return RateMyClassSave.sendBack;
+
   }
 }
-
-
+  /* public static ArrayList<String> surveyQuestion(String newText) {
+   if (RateMyClassDriver.surveyNumber == 1) return surveyQuestions;
+   else if (RateMyClassDriver.surveyNumber == 2) return surveyQuestions;
+   else if (RateMyClassDriver.surveyNumber == 3) return surveyQuestions;
+   else if (RateMyClassDriver.surveyNumber == 4) return surveyQuestions;
+   else if (RateMyClassDriver.surveyNumber == 5) return surveyQuestions;   
+   else return null;
+   }  */
+  
+// returns the first index number for whatever subject was picked
+  
+  
+  
