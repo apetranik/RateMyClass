@@ -2,11 +2,11 @@ package RateMyClass;
 import java.util.ArrayList;
 
 public class RateMyClassSurvey {
-  private static ArrayList<String> surveyQuestion1 = new ArrayList<String>(); // ArrayList of the 5 survey questions
-  private static ArrayList<String> surveyQuestion2 = new ArrayList<String>(); // ArrayList of the 5 survey questions
-  private static ArrayList<String> surveyQuestion3 = new ArrayList<String>(); // ArrayList of the 5 survey questions
-  private static ArrayList<String> surveyQuestion4 = new ArrayList<String>(); // ArrayList of the 5 survey questions
-  private static ArrayList<String> thanksFor = new ArrayList<String>();
+  public static ArrayList<String> surveyQuestion1 = new ArrayList<String>(); // ArrayList of the 5 survey questions
+  public static ArrayList<String> surveyQuestion2 = new ArrayList<String>(); // ArrayList of the 5 survey questions
+  public static ArrayList<String> surveyQuestion3 = new ArrayList<String>(); // ArrayList of the 5 survey questions
+  public static ArrayList<String> surveyQuestion4 = new ArrayList<String>(); // ArrayList of the 5 survey questions
+  public static ArrayList<String> thanksFor = new ArrayList<String>();
   private static int surveyNumber1;
   private static int surveyNumber2;
   private static int surveyNumber3;
@@ -16,7 +16,7 @@ public class RateMyClassSurvey {
   public static Boolean hasSelected = false; 
   public static int firstNumber = 0; // first index for selected subject
   public static int lastNumber = 0; // last index for selected subject
-  public static int level = 1;
+  public static int level = 0;
   public static int surveylevel = 0;
   public static String courseSelected = "";
   public static ArrayList<String> questionFinal = new ArrayList<String>();
@@ -28,12 +28,7 @@ public class RateMyClassSurvey {
   
   // returns array of subject courses based on user input
   public static ArrayList<String> pickSubject(String text) {  
-    surveyQuestion1.add("\nSurvey Questions - \n\nOn a scale of 1-10, how hard was/is the course overall?\n");
-    surveyQuestion2.add("On a scale of 1-10, how much homework did/do you have for this course?\n");
-    surveyQuestion3.add("On a scale of 1-10, how engaged did/do you feel in this course?\n");
-    surveyQuestion4.add("On a scale of 1-10, how much did you enjoy the class?");
-    thanksFor.add("Thanks for taking the survey, here on the results for, \b" + courseSelected+"\b:"); 
-    questionFinal.add("");
+    
     String newText = text.toLowerCase(); // takes user input (text) and changes it to lowercase
     if (newText.equals("math")) { // if the user typed math
       firstNumber = 0; // sets variable to first index number of subject "math"
@@ -125,41 +120,79 @@ public class RateMyClassSurvey {
     else if (hasSelected) {
       courseSelected = newText; 
       surveylevel++;
-      return sendSurvey(surveylevel, newText);
+      return sendSurvey(surveylevel, courseSelected);
       
     }
     else return RateMyClassSave.sendBack;
   }
   
   public static ArrayList<String> sendSurvey (int lev, String text) {
+    String oldText = text;
     if (lev == 1) {
+      System.out.println(text);
+      oldText = text;
+      int surveyNumber0 = 0;
+      RateMyClassSave.inputSurvey(surveyNumber0, oldText, 0);
       return surveyQuestion1; 
+      
     }
     else if (lev == 2) {
       surveyNumber1 = Integer.parseInt(text);
-      RateMyClassSave.inputSurvey(surveyNumber1, courseSelected, 1);
-      return surveyQuestion2; 
+      if (isInteger(text)) {
+        
+        System.out.println(surveyNumber1);
+        RateMyClassSave.inputSurvey(surveyNumber1, oldText, 1);
+        return surveyQuestion2; 
+      }
+      else return surveyQuestion1; 
+      
+      
     }
     else if (lev == 3) {
       surveyNumber2 = Integer.parseInt(text);
-      RateMyClassSave.inputSurvey(surveyNumber2, courseSelected, 2);
-      return surveyQuestion3; 
+      if (isInteger(text)) {
+        
+        RateMyClassSave.inputSurvey(surveyNumber2, oldText, 2);
+        return surveyQuestion3; 
+      }
+      else return surveyQuestion2; 
+      
     }
     else if (lev == 4) {
       surveyNumber3 = Integer.parseInt(text);
-      RateMyClassSave.inputSurvey(surveyNumber3, courseSelected, 3);
-      return surveyQuestion4; 
+      if (isInteger(text)) {
+        
+        RateMyClassSave.inputSurvey(surveyNumber3, oldText, 3);
+        return surveyQuestion4;
+      }
+      else {
+        return surveyQuestion3;
+      }
     }
     else if (lev == 5) {
-      System.out.println("hi");
       surveyNumber4 = Integer.parseInt(text);
-      RateMyClassSave.inputSurvey(surveyNumber4, courseSelected, 4);
-      return RateMyClassSave.outputSurvey(surveyNumber1, surveyNumber2, surveyNumber3, surveyNumber4); 
+      if (isInteger(text)) {
+        
+        RateMyClassSave.inputSurvey(surveyNumber4, oldText, 4);
+        return RateMyClassSave.outputSurvey(surveyNumber1, surveyNumber2, surveyNumber3, surveyNumber4); 
+      }
+      else {
+        return surveyQuestion4;
+      }
     }
     else return null;
   }
+  public static boolean isInteger(String s) {
+    try { 
+      Integer.parseInt(s); 
+    } catch(NumberFormatException e) { 
+      return false; 
+    }
+    // only got here if we didn't return false
+    return true;
+  }
+ 
   
-
 }
 
 

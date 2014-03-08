@@ -8,7 +8,7 @@ public class RateMyClassSave {
   private static ArrayList<Double> question2 = new ArrayList<Double>();
   private static ArrayList<Double> question3 = new ArrayList<Double>();
   private static ArrayList<Double> question4 = new ArrayList<Double>();
-  private static int i = 0;
+  private static int index = 0;
   private static ArrayList<Integer> numEntries1 = new ArrayList<Integer>();
   private static ArrayList<Integer> numEntries2 = new ArrayList<Integer>();
   private static ArrayList<Integer> numEntries3= new ArrayList<Integer>();
@@ -17,10 +17,10 @@ public class RateMyClassSave {
   public RateMyClassSave() {
     
   }
-  public static void defaulting () { 
+  public static void defaulting () {
     sendBack.add(RateMyClassDriver.courseQuestion);
     // MATH: 0-13
-    allCourses.add(new String("\n\n\n\n\n\n\n\n\n\n\n\nMATH -------\n"));
+    allCourses.add(new String("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMATH -------\n"));
     allCourses.add(new String("algebra 1"));
     allCourses.add(new String("geometry"));
     allCourses.add(new String("geometry h."));
@@ -113,7 +113,7 @@ public class RateMyClassSave {
     allCourses.add(new String("ISPE: Field Sports"));
     allCourses.add(new String("ISPE: Indoor Sports"));
     allCourses.add(new String("ISPE: PEP"));
-    allCourses.add(new String("ISPE: Raquetball/Tennis"));
+    allCourses.add(new String("ISPE: Racquetball/Tennis"));
     allCourses.add(new String("ISPE: Water Sports"));
     allCourses.add(new String("ISPE: Yoga 1"));
     allCourses.add(new String("ISPE: Yoga 2"));
@@ -181,6 +181,323 @@ public class RateMyClassSave {
     allCourses.add(new String("French"));
     allCourses.add(new String("Spanish"));
     allCourses.add(new String("Hawaiian"));
+    question1.add(2.0);
+    question1.add(0.0);
+    question1.add(0.0);
+    question1.add(0.0);
+    question1.add(0.0);
+    question1.add(0.0);
+    question1.add(0.0);
+    question1.add(0.0);
+    question1.add(0.0);
+    question1.add(0.0);
+    question1.add(0.0);
+    question1.add(0.0);
+    question1.add(0.0);
+    question1.add(0.0);
+    question1.add(0.0);
+    question1.add(0.0);
+    question1.add(0.0);
+    question1.add(0.0);
+    question1.add(0.0);
+    question1.add(0.0);
+    question1.add(0.0);
+    question1.add(0.0);
+    question1.add(0.0);
+    question1.add(0.0);
+    question1.add(0.0);
+    question1.add(0.0);
+    question1.add(0.0);
+    question1.add(0.0);
+    question1.add(0.0);
+    question1.add(0.0);
+    question2.add(0.0);
+    question2.add(0.0);
+    question2.add(0.0);
+    question2.add(0.0);
+    question2.add(0.0);
+    question2.add(0.0);
+    question2.add(0.0);
+    question2.add(0.0);
+    question2.add(0.0);
+    question2.add(0.0);
+    question2.add(0.0);
+    question2.add(0.0);
+    question2.add(0.0);
+    question2.add(0.0);
+    question2.add(0.0);
+    question2.add(0.0);
+    question2.add(0.0);
+    question2.add(0.0);
+    question2.add(0.0);
+    question2.add(0.0);
+    question2.add(0.0);
+    question2.add(0.0);
+    question2.add(0.0);
+    question2.add(0.0);
+    question2.add(0.0);
+    question2.add(0.0);
+    question2.add(0.0);
+    question2.add(0.0);
+    question2.add(0.0);
+    question2.add(0.0);
+    question2.add(0.0);
+    question2.add(0.0);
+    question2.add(0.0);
+    question2.add(0.0);
+    question2.add(0.0);;
+    question3.add(0.0);
+    question3.add(0.0);
+    question3.add(0.0);
+    question3.add(0.0);
+    question3.add(0.0);
+    question3.add(0.0);
+    question3.add(0.0);
+    question3.add(0.0);
+    question3.add(0.0);
+    question3.add(0.0);
+    question3.add(0.0);
+    question3.add(0.0);
+    question3.add(0.0);
+    question3.add(0.0);
+    question3.add(0.0);
+    question3.add(0.0);
+    question3.add(0.0);
+    question3.add(0.0);
+    question3.add(0.0);
+    question3.add(0.0);
+    question3.add(0.0);
+    question3.add(0.0);
+    question3.add(0.0);
+    question3.add(0.0);
+    question3.add(0.0);
+    question3.add(0.0);
+    question3.add(0.0);
+    question3.add(0.0);
+    question3.add(0.0);
+    question3.add(0.0);
+    question3.add(0.0);
+    question3.add(0.0);
+    question3.add(0.0);
+    question3.add(0.0);
+    question3.add(0.0);
+    question3.add(0.0);
+    question3.add(0.0);
+    question3.add(0.0);
+    question3.add(0.0);
+    question3.add(0.0);
+    question3.add(0.0);
+    question3.add(0.0);
+    question3.add(0.0);
+    question3.add(0.0);
+    question3.add(0.0);
+    question3.add(0.0);
+    question3.add(0.0);
+    question3.add(0.0);
+    question4.add(0.0);
+    question4.add(0.0);
+    question4.add(0.0);
+    question4.add(0.0);
+    question4.add(0.0);
+    question4.add(0.0);
+    question4.add(0.0);
+    question4.add(0.0);
+    question4.add(0.0);
+    question4.add(0.0);
+    question4.add(0.0);
+    question4.add(0.0);
+    question4.add(0.0);
+    question4.add(0.0);
+    question4.add(0.0);
+    question4.add(0.0);
+    question4.add(0.0);
+    question4.add(0.0);
+    question4.add(0.0);
+    question4.add(0.0);
+    question4.add(0.0);
+    question4.add(0.0);
+    question4.add(0.0);
+    question4.add(0.0);
+    question4.add(0.0);
+    question4.add(0.0);
+    question4.add(0.0);
+    question4.add(0.0);
+    numEntries1.add(1);
+    numEntries1.add(1);
+    numEntries1.add(1);
+    numEntries1.add(1);
+    numEntries1.add(1);
+    numEntries1.add(1);
+    numEntries1.add(1);
+    numEntries1.add(1);
+    numEntries1.add(1);
+    numEntries1.add(1);
+    numEntries1.add(1);
+    numEntries1.add(1);
+    numEntries1.add(1);
+    numEntries1.add(1);
+    numEntries1.add(1);
+    numEntries1.add(1);
+    numEntries1.add(1);
+    numEntries1.add(1);
+    numEntries1.add(1);
+    numEntries1.add(1);
+    numEntries2.add(1);
+    numEntries2.add(1);
+    numEntries2.add(1);
+    numEntries2.add(1);
+    numEntries2.add(1);
+    numEntries2.add(1);
+    numEntries2.add(1);
+    numEntries2.add(1);
+    numEntries2.add(1);
+    numEntries2.add(1);
+    numEntries2.add(1);
+    numEntries2.add(1);
+    numEntries2.add(1);
+    numEntries2.add(1);
+    numEntries2.add(1);
+    numEntries2.add(1);
+    numEntries2.add(1);
+    numEntries2.add(1);
+    numEntries2.add(1);
+    numEntries2.add(1);
+    numEntries2.add(1);
+    numEntries2.add(1);
+    numEntries2.add(1);
+    numEntries2.add(1);
+    numEntries2.add(1);
+    numEntries2.add(1);
+    numEntries2.add(1);
+    numEntries3.add(1);
+    numEntries3.add(1);
+    numEntries3.add(1);
+    numEntries3.add(1);
+    numEntries3.add(1);
+    numEntries3.add(1);
+    numEntries3.add(1);
+    numEntries3.add(1);
+    numEntries3.add(1);
+    numEntries3.add(1);
+    numEntries3.add(1);
+    numEntries3.add(1);
+    numEntries3.add(1);
+    numEntries3.add(1);
+    numEntries3.add(1);
+    numEntries3.add(1);
+    numEntries3.add(1);
+    numEntries3.add(1);
+    numEntries3.add(1);
+    numEntries3.add(1);
+    numEntries3.add(1);
+    numEntries3.add(1);
+    numEntries3.add(1);
+    numEntries3.add(1);
+    numEntries3.add(1);
+    numEntries3.add(1);
+    numEntries3.add(1);
+    numEntries3.add(1);
+    numEntries3.add(1);
+    numEntries3.add(1);
+    numEntries3.add(1);
+    numEntries3.add(1);
+    numEntries3.add(1);
+    numEntries3.add(1);
+    numEntries3.add(1);
+    numEntries3.add(1);
+    numEntries3.add(1);
+    numEntries3.add(1);
+    numEntries3.add(1);
+    numEntries3.add(1);
+    numEntries3.add(1);
+    numEntries3.add(1);
+    numEntries3.add(1);
+    numEntries3.add(1);
+    numEntries3.add(1);
+    numEntries3.add(1);
+    numEntries3.add(1);
+    numEntries3.add(1);
+    numEntries3.add(1);
+    numEntries3.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    numEntries4.add(1);
+    
+    RateMyClassSurvey.surveyQuestion1.add("\nSurvey Questions - \n\n\nOn a scale of 1-10, how hard was the course overall?\n");
+    RateMyClassSurvey.surveyQuestion2.add("On a scale of 1-10, how much homework did you have for this course?\n");
+    RateMyClassSurvey.surveyQuestion3.add("On a scale of 1-10, how engaged did you feel in this course?\n");
+    RateMyClassSurvey.surveyQuestion4.add("On a scale of 1-10, how much did you enjoy the class?");
+    RateMyClassSurvey.thanksFor.add("Thanks for taking the survey, here on the results for, \b" + RateMyClassSurvey.courseSelected+"\b:"); 
+    RateMyClassSurvey.questionFinal.add("");
   }
   
   public static ArrayList<String> getArray(int numberOne,int numberTwo) {
@@ -194,81 +511,71 @@ public class RateMyClassSave {
   
   public static void inputSurvey (int surveyvalue, String course, int questionnum) {
     String bigArray = "";
-    int temp = 0;
-    for (i = 0; i < allCourses.size()-1; i++) {
-      bigArray = allCourses.get(i).toLowerCase();
-      if (bigArray.equals(course)) {
-        if (RateMyClassSurvey.surveylevel == 1) {
-          question1.set(i,average(surveyvalue,questionnum));
-          System.out.println(question1.get(0));
-          temp = numEntries1.get(i) + 1;
-          numEntries1.set(i, temp);
-        }
-        else if (RateMyClassSurvey.surveylevel == 2) {
-          question2.set(i,average(surveyvalue,questionnum));
-          temp = numEntries2.get(i) + 1;
-          numEntries2.set(i, temp);
-        }
-        else if (RateMyClassSurvey.surveylevel == 3) {
-          question3.set(i, average(surveyvalue,questionnum));
-          temp = numEntries3.get(i) + 1;
-          numEntries3.set(i, temp);
-        }
-        else if (RateMyClassSurvey.surveylevel == 4) {
-          question4.set(i, average(surveyvalue,questionnum));
-          temp = numEntries4.get(i) + 1;
-          numEntries4.set(i, temp);
+    int temp;
+    System.out.println(course);
+    if (questionnum == 0) { 
+      for (int i = 0; i < allCourses.size()-1; i++) {
+        if (allCourses.get(i).equals(course)) {
+          index = i;
         }
       }
     }
-    
+    else {
+      
+      double temp2 = average(surveyvalue, questionnum);
+      
+      question1.set(index,temp2);
+      
+      temp = numEntries1.get(index) + 1;
+      System.out.println(temp);
+      numEntries1.set(index, temp);
+    }
   }
   
   public static ArrayList<String> outputSurvey (int surveyValue1,int surveyValue2,int surveyValue3,int surveyValue4) {
-    System.out.println("check 2");
     ArrayList<String> output = new ArrayList<String>();
-    System.out.println(question1.get(i));
     
     output.add("AVERAGES FOR ALL SELECTED COURSE (1-10)\n\n");
-    System.out.println("check 3");
-    output.add("QUESTION 1: On a scale of 1-10, how hard was/is the course overall?\n"+ question1.get(i));
-    System.out.println("check 4");
-    output.add("QUESTION 2: On a scale of 1-10, how much homework did/do you have for this course?\n"+ question2.get(i));
-    System.out.println("check 5");
-    output.add("QUESTION 3: On a scale of 1-10, how engaged did/do you feel in this course?\n"+ question3.get(i));
-    System.out.println("check 6");
-    output.add("QUESTION 4: On a scale of 1-10, how much did you enjoy the class?"+ question4.get(i));
-    System.out.println("check 7");
+    
+    output.add("QUESTION 1: On a scale of 1-10, how hard was/is the course overall?\n"+ question1.get(index));
+    
+    output.add("\nQUESTION 2: On a scale of 1-10, how much homework did/do you have for this course?\n"+ question2.get(index));
+    
+    output.add("\nQUESTION 3: On a scale of 1-10, how engaged did/do you feel in this course?\n"+ question3.get(index));
+    
+    output.add("\nQUESTION 4: On a scale of 1-10, how much did you enjoy the class?\n"+ question4.get(index));
     return output;
   }
   
   public static double average(int surveyValue, int questionnum) {
-    double tempNum;
-    double tempNum2;
+    double tempNum = 0;
+    double tempNum2 = 0;
     double tempNum3 = 0;
     if (questionnum == 1) {
-      tempNum = question1.get(i);
-      tempNum2 = tempNum*numEntries1.get(i);
-      tempNum3 = (tempNum2+ surveyValue)/numEntries1.get(i);
-      question1.set(i, tempNum3);
+      tempNum = question1.get(index);
+      tempNum2 = (tempNum)*(numEntries1.get(index));
+      tempNum3 = (tempNum2+ surveyValue)/numEntries1.get(index);
+      question1.set(index, tempNum3);
+      
+      
     }
     else if (questionnum == 2) {
-      tempNum = question2.get(i);
-      tempNum2 = tempNum*numEntries2.get(i);
-      tempNum3 = (tempNum2+ surveyValue)/numEntries2.get(i);
-      question2.set(i,tempNum3);
+      tempNum = question2.get(index);
+      tempNum2 = tempNum*numEntries2.get(index);
+      tempNum3 = (tempNum2+ surveyValue)/numEntries2.get(index);
+      question2.set(index,tempNum3);
     }
     else if (questionnum == 3) {
-      tempNum = question3.get(i);
-      tempNum2 = tempNum*numEntries3.get(i);
-      tempNum3 = (tempNum2+ surveyValue)/numEntries3.get(i);
-      question3.set(i,tempNum3);
+      tempNum = question3.get(index);
+      tempNum2 = tempNum*numEntries3.get(index);
+      tempNum3 = (tempNum2+ surveyValue)/numEntries3.get(index);
+      question3.set(index,tempNum3);
     }
     else if (questionnum == 4) {
-      tempNum = question4.get(i);
-      tempNum2 = tempNum*numEntries4.get(i);
-      tempNum3 = (tempNum2+ surveyValue)/numEntries4.get(i);
-      question4.set(i,tempNum3);
+      tempNum = question4.get(index);
+      tempNum2 = tempNum*numEntries4.get(index);
+      tempNum3 = (tempNum2+ surveyValue)/numEntries4.get(index);
+      question4.set(index,tempNum3);
     }
     return tempNum3;
     

@@ -7,10 +7,11 @@ public class RateMyClassDriver {
   public static int surveyNumber = 0;
   public static ArrayList<String> endSurvey = new ArrayList<String>();
   public static String levelText = "";
-  public static ArrayList<String> realArray = new ArrayList<String>();
 
+  
   // runs the RateView Class
   public static void main(String[] args) {
+    RateMyClassSave.defaulting();
     endSurvey.add("Thanks for filling out the survey");
     String[] arguments = new String[] {"test"};
     RateMyClassView.main(arguments); //runs view -- main method from RateView class

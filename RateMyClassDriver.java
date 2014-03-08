@@ -3,7 +3,7 @@ package RateMyClass;
 import java.util.ArrayList;
 
 public class RateMyClassDriver {
-  public static String courseQuestion = "Which Course area do you want? \n\nMath,  Science,  English,  Language, Social Studies,  Art, or P.E.?\n\n\n\n\n** Please use same spelling as words on screen";
+  public static String courseQuestion = "Which Course area do you want? \n\nMath,  Science,  English, Social Studies,  Art, or P.E.?\n\n\n\n\n** Please use same spelling as words on screen";
   public static int surveyNumber = 0;
   public static ArrayList<String> endSurvey = new ArrayList<String>();
   public static String levelText = "";
