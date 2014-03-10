@@ -30,6 +30,7 @@ public class RateMyClassSurvey {
   public static ArrayList<String> pickSubject(String text) {  
     
     String newText = text.toLowerCase(); // takes user input (text) and changes it to lowercase
+    RateMyClassSave.isCourseTrue(newText);
     if (newText.equals("math")) { // if the user typed math
       firstNumber = 0; // sets variable to first index number of subject "math"
       lastNumber = 14;
@@ -117,7 +118,8 @@ public class RateMyClassSurvey {
       hasSelected = true; 
       return RateMyClassSave.getArray(129,134);
     }
-    else if (hasSelected) {
+    
+    else if (hasSelected==true && RateMyClassSave.isCourse == true) {
       courseSelected = newText; 
       surveylevel++;
       return sendSurvey(surveylevel, courseSelected);
@@ -129,7 +131,6 @@ public class RateMyClassSurvey {
   public static ArrayList<String> sendSurvey (int lev, String text) {
     String oldText = text;
     if (lev == 1) {
-      System.out.println(text);
       oldText = text;
       int surveyNumber0 = 0;
       RateMyClassSave.inputSurvey(surveyNumber0, oldText, 0);
@@ -140,7 +141,6 @@ public class RateMyClassSurvey {
       surveyNumber1 = Integer.parseInt(text);
       if (isInteger(text)) {
         
-        System.out.println(surveyNumber1);
         RateMyClassSave.inputSurvey(surveyNumber1, oldText, 1);
         return surveyQuestion2; 
       }
@@ -151,7 +151,7 @@ public class RateMyClassSurvey {
     else if (lev == 3) {
       surveyNumber2 = Integer.parseInt(text);
       if (isInteger(text)) {
-        
+        System.out.println("hi");
         RateMyClassSave.inputSurvey(surveyNumber2, oldText, 2);
         return surveyQuestion3; 
       }
@@ -191,7 +191,7 @@ public class RateMyClassSurvey {
     // only got here if we didn't return false
     return true;
   }
- 
+  
   
 }
 

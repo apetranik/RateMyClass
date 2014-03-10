@@ -13,6 +13,7 @@ public class RateMyClassSave {
   private static ArrayList<Integer> numEntries2 = new ArrayList<Integer>();
   private static ArrayList<Integer> numEntries3= new ArrayList<Integer>();
   private static ArrayList<Integer> numEntries4 = new ArrayList<Integer>();
+  public static Boolean isCourse = false;
   
   public RateMyClassSave() {
     
@@ -181,7 +182,7 @@ public class RateMyClassSave {
     allCourses.add(new String("French"));
     allCourses.add(new String("Spanish"));
     allCourses.add(new String("Hawaiian"));
-    question1.add(2.0);
+    question1.add(0.0);
     question1.add(0.0);
     question1.add(0.0);
     question1.add(0.0);
@@ -512,7 +513,6 @@ public class RateMyClassSave {
   public static void inputSurvey (int surveyvalue, String course, int questionnum) {
     String bigArray = "";
     int temp;
-    System.out.println(course);
     if (questionnum == 0) { 
       for (int i = 0; i < allCourses.size()-1; i++) {
         if (allCourses.get(i).equals(course)) {
@@ -527,9 +527,10 @@ public class RateMyClassSave {
       question1.set(index,temp2);
       
       temp = numEntries1.get(index) + 1;
-      System.out.println(temp);
       numEntries1.set(index, temp);
     }
+    System.out.println(question1.get(0));
+    
   }
   
   public static ArrayList<String> outputSurvey (int surveyValue1,int surveyValue2,int surveyValue3,int surveyValue4) {
@@ -548,13 +549,16 @@ public class RateMyClassSave {
   }
   
   public static double average(int surveyValue, int questionnum) {
-    double tempNum = 0;
-    double tempNum2 = 0;
-    double tempNum3 = 0;
+    double tempNum = 1;
+    double tempNum2 = 1;
+    double tempNum3 = 1;
     if (questionnum == 1) {
       tempNum = question1.get(index);
+      System.out.println(tempNum);
       tempNum2 = (tempNum)*(numEntries1.get(index));
+      System.out.println(tempNum2);
       tempNum3 = (tempNum2+ surveyValue)/numEntries1.get(index);
+      System.out.println(tempNum3);
       question1.set(index, tempNum3);
       
       
@@ -580,6 +584,15 @@ public class RateMyClassSave {
     return tempNum3;
     
     
+  }
+  public static void isCourseTrue (String text) {
+    text = text.toLowerCase();
+    for (int p = 0; p < allCourses.size()-1; p++) {
+      if (allCourses.get(p).equals(text)) {
+        isCourse = true;
+      }
+      else {}
+    }
   }
 }
 
