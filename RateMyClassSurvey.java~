@@ -21,11 +21,6 @@ public class RateMyClassSurvey {
   public static String courseSelected = "";
   public static ArrayList<String> questionFinal = new ArrayList<String>();
   
-  // sets survey questions
-  public RateMyClassSurvey() {
-    
-  }
-  
   // returns array of subject courses based on user input
   public static ArrayList<String> pickSubject(String text) {  
     
@@ -133,14 +128,16 @@ public class RateMyClassSurvey {
     if (lev == 1) {
       oldText = text;
       int surveyNumber0 = 0;
+      
       RateMyClassSave.inputSurvey(surveyNumber0, oldText, 0);
       return surveyQuestion1; 
       
     }
     else if (lev == 2) {
-      surveyNumber1 = Integer.parseInt(text);
+ 
+      
       if (isInteger(text)) {
-        
+        surveyNumber1 = Integer.parseInt(text);
         RateMyClassSave.inputSurvey(surveyNumber1, oldText, 1);
         return surveyQuestion2; 
       }
@@ -149,9 +146,9 @@ public class RateMyClassSurvey {
       
     }
     else if (lev == 3) {
-      surveyNumber2 = Integer.parseInt(text);
+      
       if (isInteger(text)) {
-        
+        surveyNumber2 = Integer.parseInt(text);
         RateMyClassSave.inputSurvey(surveyNumber2, oldText, 2);
         return surveyQuestion3; 
       }
@@ -159,9 +156,9 @@ public class RateMyClassSurvey {
       
     }
     else if (lev == 4) {
-      surveyNumber3 = Integer.parseInt(text);
+      
       if (isInteger(text)) {
-        
+        surveyNumber3 = Integer.parseInt(text);  
         RateMyClassSave.inputSurvey(surveyNumber3, oldText, 3);
         return surveyQuestion4;
       }
@@ -170,9 +167,9 @@ public class RateMyClassSurvey {
       }
     }
     else if (lev == 5) {
-      surveyNumber4 = Integer.parseInt(text);
+      
       if (isInteger(text)) {
-        
+        surveyNumber4 = Integer.parseInt(text);
         RateMyClassSave.inputSurvey(surveyNumber4, oldText, 4);
         return RateMyClassSave.outputSurvey(surveyNumber1, surveyNumber2, surveyNumber3, surveyNumber4); 
       }
@@ -182,21 +179,18 @@ public class RateMyClassSurvey {
     }
     else return null;
   }
+  // Checks to see if what the user enter is an int or a string -- returns false if a string, true if an int
   public static boolean isInteger(String s) {
     try { 
       Integer.parseInt(s); 
     } catch(NumberFormatException e) { 
       return false; 
     }
-    // only got here if we didn't return false
     return true;
   }
-  
-  
+
 }
 
-
-// returns the first index number for whatever subject was picked
 
 
 

@@ -11,6 +11,11 @@ public class RateMyClassSurvey {
   private static int surveyNumber2;
   private static int surveyNumber3;
   private static int surveyNumber4;
+  public static boolean remember2 = true;
+  public static boolean courseDone = false;
+  public static ArrayList<String> temp = new ArrayList<String>();
+  public static     ArrayList<String>temp2 = new ArrayList<String>();
+  public static boolean isOver = false; 
   
   public static Boolean languagebarrier = false; // controls whether or not the user is in the language menu
   public static Boolean hasSelected = false; 
@@ -20,11 +25,6 @@ public class RateMyClassSurvey {
   public static int surveylevel = 0;
   public static String courseSelected = "";
   public static ArrayList<String> questionFinal = new ArrayList<String>();
-  
-  // sets survey questions
-  public RateMyClassSurvey() {
-    
-  }
   
   // returns array of subject courses based on user input
   public static ArrayList<String> pickSubject(String text) {  
@@ -66,137 +66,162 @@ public class RateMyClassSurvey {
       hasSelected = true; 
       return RateMyClassSave.getArray(45,59);
     }
-    else if (newText.equals("art")) {
-      firstNumber = 60;
-      level++;
-      hasSelected = true; 
-      return RateMyClassSave.getArray(60,76);
-    }
-    else if (newText.equals("pe")) {
-      firstNumber = 77;
-      lastNumber = 89;
-      level++;
-      hasSelected = true; 
-      return RateMyClassSave.getArray(77,88);
-    }
-    else if (newText.equals("chinese") && languagebarrier == true) {
-      firstNumber = 89;
-      lastNumber = 99;
-      level++;
-      hasSelected = true; 
-      return RateMyClassSave.getArray(89,98);
-    }
-    else if (newText.equals("japanese") && languagebarrier == true) {
-      languagebarrier = false;
-      firstNumber = 99;
-      lastNumber = 109;
-      level++;
-      hasSelected = true; 
-      return RateMyClassSave.getArray(99,108);
-    }
-    else if (newText.equals("french") && languagebarrier == true) {
-      languagebarrier = false;
-      firstNumber = 109;
-      lastNumber = 119;
-      level++;
-      hasSelected = true; 
-      return RateMyClassSave.getArray(109,118);
-    }
-    else if (newText.equals("spanish") && languagebarrier == true) {
-      languagebarrier = false;
-      firstNumber = 119;
-      lastNumber = 129;
-      level++;
-      hasSelected = true; 
-      return RateMyClassSave.getArray(119,128);
-    }
-    else if (newText.equals("hawaiian") && languagebarrier == true) {
-      languagebarrier = false;
-      firstNumber = 129;
-      lastNumber = 135;
-      level++;
-      hasSelected = true; 
-      return RateMyClassSave.getArray(129,134);
-    }
     
-    else if (hasSelected==true && RateMyClassSave.isCourse == true) {
-      courseSelected = newText; 
-      surveylevel++;
-      return sendSurvey(surveylevel, courseSelected);
+    else if (hasSelected==true && RateMyClassSave.isCourse == true && !(newText.equals("back"))) {
+      if (courseDone) {
+        String temptext = newText;
+        if (isOver == false) {
+        surveylevel++;
+        courseDone = false;
+        }
+        else {}
+        return sendSurvey(surveylevel, text);
+      }
+      else {
+        courseSelected = newText;
+        surveylevel++;
+        return sendSurvey(surveylevel, courseSelected);
+      }
+      
       
     }
-    else return RateMyClassSave.sendBack;
+    else if (hasSelected == true && RateMyClassSave.isCourse == false && !(newText.equals("back"))) {
+      return RateMyClassSave.getArray(firstNumber,lastNumber-1);
+    }
+    else if (newText.equals("back")) {
+      return RateMyClassDriver.courseQuestions;
+    }
+    else {
+      return RateMyClassSave.sendBack;
+    }
   }
   
   public static ArrayList<String> sendSurvey (int lev, String text) {
+    
+    temp.add("\nSurvey Questions - \n\n\nOn a scale of 1-10, how hard was the course overall?\n");
+    temp.add("On a scale from 1-10, how much homework did you have?\n");
+    temp.add("On a scale of 1-10, how engaged did you feel in this course?\n");
+    temp.add("On a scale of 1-10, how much did you enjoy the class?");
+    temp.add("Thanks for taking the survey, here on the results for, \b");
+    
+    
     String oldText = text;
     if (lev == 1) {
-      oldText = text;
-      int surveyNumber0 = 0;
-      RateMyClassSave.inputSurvey(surveyNumber0, oldText, 0);
-      return surveyQuestion1; 
-      
-    }
-    else if (lev == 2) {
-      surveyNumber1 = Integer.parseInt(text);
-      if (isInteger(text)) {
-        
-        RateMyClassSave.inputSurvey(surveyNumber1, oldText, 1);
-        return surveyQuestion2; 
+      RateMyClassSave.isCourseTrue(text);
+      if (isInteger(text) == false || RateMyClassSave.isCourse) {  
+        oldText = text;
+        int surveyNumber0 = 0;   
+        temp2.add(temp.get(0));
+        RateMyClassSave.inputSurvey(surveyNumber0, oldText, 0);
+        isOver = false;
+        return temp2;
       }
-      else return surveyQuestion1; 
-      
+      else {
+        return RateMyClassSave.getArray(firstNumber,lastNumber);
+      }
+    }
+    else if (lev == 2) {  
+      if (isInteger(text)) {
+        surveyNumber1 = Integer.parseInt(text);
+        if (surveyNumber1 <= 10) {
+          RateMyClassSave.inputSurvey(surveyNumber1, oldText, 1);
+          temp2.add(temp.get(1));
+          isOver = false;
+          return temp2; 
+        }
+        else {
+          isOver = true;
+          temp2.clear();
+          temp2.add(temp.get(0));
+          return temp2;
+        }
+      }
+      else return temp2;
       
     }
     else if (lev == 3) {
-      surveyNumber2 = Integer.parseInt(text);
       if (isInteger(text)) {
-        System.out.println("hi");
-        RateMyClassSave.inputSurvey(surveyNumber2, oldText, 2);
-        return surveyQuestion3; 
+        surveyNumber2 = Integer.parseInt(text);
+        if (surveyNumber2 <= 10) {
+          RateMyClassSave.inputSurvey(surveyNumber2, oldText, 2);
+          temp2.add(temp.get(2));
+          isOver = false;
+          return temp2; 
+        }
+        else {
+          isOver = true;
+          temp2.clear();
+          temp2.add(temp.get(1));
+          
+          return temp2;
+        }
       }
-      else return surveyQuestion2; 
+      else return temp2; 
       
     }
-    else if (lev == 4) {
-      surveyNumber3 = Integer.parseInt(text);
+    else if (lev == 4) {  
       if (isInteger(text)) {
-        
-        RateMyClassSave.inputSurvey(surveyNumber3, oldText, 3);
-        return surveyQuestion4;
+        surveyNumber3 = Integer.parseInt(text);  
+        if (surveyNumber3 <= 10) {
+          RateMyClassSave.inputSurvey(surveyNumber3, oldText, 3);
+          temp2.add(temp.get(3));
+          isOver = false;
+          return temp2;
+        }
+        else {
+          isOver = true;
+          temp2.clear();
+          temp2.add(temp.get(2));
+          return temp2;
+        }
       }
       else {
-        return surveyQuestion3;
+        return temp2;
       }
     }
     else if (lev == 5) {
-      surveyNumber4 = Integer.parseInt(text);
       if (isInteger(text)) {
-        
-        RateMyClassSave.inputSurvey(surveyNumber4, oldText, 4);
-        return RateMyClassSave.outputSurvey(surveyNumber1, surveyNumber2, surveyNumber3, surveyNumber4); 
+        surveyNumber4 = Integer.parseInt(text);
+        if (surveyNumber4 <= 10) {
+          RateMyClassSave.inputSurvey(surveyNumber4, oldText, 4);
+          isOver = false;
+          return RateMyClassSave.outputSurvey(surveyNumber1, surveyNumber2, surveyNumber3, surveyNumber4); 
+        }
+        else {
+          isOver = true;
+          temp2.clear();
+          temp2.add(temp.get(3));
+          return temp2;
+        }
       }
       else {
-        return surveyQuestion4;
+        temp2.add(temp.get(3));
+        return temp2;
       }
     }
     else return null;
   }
+// Checks to see if what the user enter is an int or a string -- returns false if a string, true if an int
   public static boolean isInteger(String s) {
     try { 
       Integer.parseInt(s); 
     } catch(NumberFormatException e) { 
       return false; 
     }
-    // only got here if we didn't return false
     return true;
   }
-  
+  public static boolean isSubject(String text) {
+    if (text.toLowerCase().equals("math")) return true;
+    else if (text.toLowerCase().equals("science")) return true;
+    else if (text.toLowerCase().equals("english")) return true;
+    else if (text.toLowerCase().equals("social studies")) return true;
+    else return false; 
+    
+  }
   
 }
 
 
-// returns the first index number for whatever subject was picked
 
 
 

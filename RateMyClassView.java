@@ -14,6 +14,7 @@ public class RateMyClassView extends JPanel implements ActionListener {
   protected JTextArea textArea; // controls the text Area - where text is displayed
   public static int binder = 0;
   private static ArrayList<String> realArray = new ArrayList<String>();
+  private static int counter = 0;
   
   
   
@@ -47,19 +48,25 @@ public class RateMyClassView extends JPanel implements ActionListener {
   }
   
   public void actionPerformed(ActionEvent evt) { // controls action listener
-    textArea.setText("");
     text = textField.getText(); //gets and saves text that the user types in
     textField.selectAll();
-    
-    String newText = text.toLowerCase(); // sets text to lowercase
-    
+    String newText = text.toLowerCase(); // sets text to lowercase 
+    realArray.clear();
     realArray = RateMyClassDriver.getText(newText);
-    for (int i = 0; i < realArray.size(); i++) {
-      textArea.append(realArray.get(i)+"\n");
-    } 
-    
+    textArea.setText(" ");
+    if (counter == 0 && RateMyClassSurvey.isSubject(newText) == true) {
+      
+      for (int i = 1; i < realArray.size(); i++) {
+        textArea.append(realArray.get(i)+"\n");
+      } 
+      counter++;
+    }
+    else {
+      for (int i = 0; i < realArray.size(); i++) {
+        textArea.append(realArray.get(i)+"\n");
+      } 
+    }
   }
- 
   
   private static void createAndShowGUI() { // creates the GUI
     JFrame frame = new JFrame("Rate My Class Application"); // creates a window and labels it Rate My Class
