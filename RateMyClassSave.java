@@ -1,53 +1,55 @@
+// Aliya Petranik -- Rate My Class 2014
 package RateMyClass;
 import java.util.ArrayList;
 
+// This class mostly deals with saving survey information and holding course information
 public class RateMyClassSave {
   private static ArrayList<String> allCourses = new ArrayList<String>(); // holds all the courses in the application
   public static ArrayList<String> sendBack = new ArrayList<String>(); // used for the purpose of adding to and then returning - so I can call from other classes. 
-  private static ArrayList<Double> question1 = new ArrayList<Double>();
+  private static ArrayList<Double> question1 = new ArrayList<Double>(); //arraylist of data values for question 1 - holds averages for each course
   private static ArrayList<Double> question2 = new ArrayList<Double>();
   private static ArrayList<Double> question3 = new ArrayList<Double>();
   private static ArrayList<Double> question4 = new ArrayList<Double>();
   private static int index = 0; // keeps track of index of user's course
-  private static ArrayList<Integer> numEntries1 = new ArrayList<Integer>();
+  private static ArrayList<Integer> numEntries1 = new ArrayList<Integer>(); //holds number of times user has takes survey for each course
   private static ArrayList<Integer> numEntries2 = new ArrayList<Integer>();
   private static ArrayList<Integer> numEntries3= new ArrayList<Integer>();
   private static ArrayList<Integer> numEntries4 = new ArrayList<Integer>();
-  public static Boolean isCourse = false;
+  public static ArrayList<String> courseQuestions = new ArrayList<String>(); // holds original home screen words - used for when the user types 'back'
+  public static Boolean isCourse = false; //keeps track if the user has selected a course
   
-  public RateMyClassSave() {
-    
-  }
-  public static void defaulting () {
+  // adds all courses to allCourses arraylist
+  // holds and defaults values for survey questions and number of entries
+  public static void defaulting () { 
     sendBack.add(RateMyClassDriver.courseQuestion);
     // MATH: 0-13
     allCourses.add(new String("MATH -------\n"));
-    allCourses.add(new String("algebra 1"));
-    allCourses.add(new String("geometry"));
-    allCourses.add(new String("geometry h."));
-    allCourses.add(new String("algebra 2"));
-    allCourses.add(new String("algebra 2 h."));
-    allCourses.add(new String("pre-calculus"));
-    allCourses.add(new String("advanced pre-calculus"));
-    allCourses.add(new String("advanced pre-calculus h."));
-    allCourses.add(new String("ap calculus ab"));
-    allCourses.add(new String("ap calculus bc"));
-    allCourses.add(new String("differential calculus"));
-    allCourses.add(new String("intro to computer science"));
-    allCourses.add(new String("ap computer science"));
+    allCourses.add(new String("Algebra 1"));
+    allCourses.add(new String("Geometry"));
+    allCourses.add(new String("Geometry h."));
+    allCourses.add(new String("Algebra 2"));
+    allCourses.add(new String("Algebra 2 h."));
+    allCourses.add(new String("Pre-Calculus"));
+    allCourses.add(new String("Advanced Pre-Calculus"));
+    allCourses.add(new String("Advanced Pre-Calculus H."));
+    allCourses.add(new String("AP Calculus AB"));
+    allCourses.add(new String("AP Calculus BC"));
+    allCourses.add(new String("Differential Calculus"));
+    allCourses.add(new String("Intro to Computer Science"));
+    allCourses.add(new String("AP Computer Science"));
     
     //SCIENCE 14-24
     allCourses.add(new String("SCIENCE\n------------------\n"));
-    allCourses.add(new String("biology"));
-    allCourses.add(new String("biology h."));
-    allCourses.add(new String("ap biology"));
-    allCourses.add(new String("chemistry"));
-    allCourses.add(new String("chemistry h."));
-    allCourses.add(new String("ap chemistry"));
-    allCourses.add(new String("physics"));
-    allCourses.add(new String("physics h."));
-    allCourses.add(new String("ap physics 1/2"));
-    allCourses.add(new String("ap physics c"));
+    allCourses.add(new String("Biology"));
+    allCourses.add(new String("Biology H."));
+    allCourses.add(new String("AP Biology"));
+    allCourses.add(new String("Chemistry"));
+    allCourses.add(new String("Chemistry h."));
+    allCourses.add(new String("AP Chemistry"));
+    allCourses.add(new String("Physics"));
+    allCourses.add(new String("Physics H."));
+    allCourses.add(new String("AP Physics 1/2"));
+    allCourses.add(new String("AP Physics C"));
     
     //ENGLISH 25-44
     allCourses.add(new String("ENGLISH\n------------------\n"));
@@ -88,41 +90,11 @@ public class RateMyClassSave {
     allCourses.add(new String("AP European History"));
     allCourses.add(new String("CapSEEDS"));
     
-    //ART 60-76
-    allCourses.add(new String("ART\n------------------\n"));
-    allCourses.add(new String("Drawing 1"));
-    allCourses.add(new String("Drawing 2"));
-    allCourses.add(new String("Life Drawing"));
-    allCourses.add(new String("Painting 1"));
-    allCourses.add(new String("Painting 2"));
-    allCourses.add(new String("Printmaking"));
-    allCourses.add(new String("Color Digital Photography"));
-    allCourses.add(new String("Black and White Film"));
-    allCourses.add(new String("Photography 2"));
-    allCourses.add(new String("Digital Art"));
-    allCourses.add(new String("Digital Video"));
-    allCourses.add(new String("Ceramics: Handbuilding"));
-    allCourses.add(new String("Ceramics: Wheel Throwing 1"));
-    allCourses.add(new String("Ceramics: Wheel Throwing 2"));
-    allCourses.add(new String("Glass Blowing 1"));
-    allCourses.add(new String("Glass Blowing 2"));
+    courseQuestions.add("Which Course area do you want? \n\nMath,  Science,  English, Social Studies,  Art, or P.E.?\n\n\n\n\n** Please use same spelling as words on screen");
+    RateMyClassDriver.empty.add(""); //empty array -- just in case
     
-    //PE 77-88
-    allCourses.add(new String("PE\n------------------\n"));
-    allCourses.add(new String("Lifetime Fitness"));
-    allCourses.add(new String("ISPE: Basic Yoga Plus"));
-    allCourses.add(new String("ISPE: Field Sports"));
-    allCourses.add(new String("ISPE: Indoor Sports"));
-    allCourses.add(new String("ISPE: PEP"));
-    allCourses.add(new String("ISPE: Racquetball/Tennis"));
-    allCourses.add(new String("ISPE: Water Sports"));
-    allCourses.add(new String("ISPE: Yoga 1"));
-    allCourses.add(new String("ISPE: Yoga 2"));
-    allCourses.add(new String("ASPE"));
-    
-    RateMyClassDriver.empty.add("");
-    RateMyClassDriver.courseQuestions.add("Which Course area do you want? \n\nMath,  Science,  English, Social Studies,  Art, or P.E.?\n\n\n\n\n** Please use same spelling as words on screen");
-    for (int k = 0; k < 40;k++) {
+    //defaults question1 values (40 values -- max number of courses)
+    for (int k = 0; k < 40;k++) { 
       question1.add(0.0);
       question2.add(0.0);
       question3.add(0.0);
@@ -135,127 +107,65 @@ public class RateMyClassSave {
       numEntries3.add(1);
       numEntries4.add(1);
     }
-    
-    /*
-     //CHINESE 89-98
-     allCourses.add(new String("CHINESE\n------------------\n"));
-     allCourses.add(new String("Chinese 1"));
-     allCourses.add(new String("Chinese 2"));
-     allCourses.add(new String("Chinese 2H"));
-     allCourses.add(new String("Chinese 3"));
-     allCourses.add(new String("Chinese 3H"));
-     allCourses.add(new String("Chinese 4"));
-     allCourses.add(new String("Chinese 4H"));
-     allCourses.add(new String("Chinese 5"));
-     allCourses.add(new String("Chinese 5H"));
-     
-     //JAPANESE 99-108
-     allCourses.add(new String("JAPANESE\n------------------\n"));
-     allCourses.add(new String("Japanese 1"));
-     allCourses.add(new String("Japanese 2"));
-     allCourses.add(new String("Japanese 2H"));
-     allCourses.add(new String("Japanese 3"));
-     allCourses.add(new String("Japanese 3H"));
-     allCourses.add(new String("Japanese 4"));
-     allCourses.add(new String("Japanese 4H"));
-     allCourses.add(new String("Japanese 5"));
-     allCourses.add(new String("Japanese 5H"));
-     
-     //FRENCH 109-118
-     allCourses.add(new String("FRENCH\n------------------\n"));
-     allCourses.add(new String("French 1"));
-     allCourses.add(new String("French 2"));
-     allCourses.add(new String("French 2H"));
-     allCourses.add(new String("French 3"));
-     allCourses.add(new String("French 3H"));
-     allCourses.add(new String("French 4"));
-     allCourses.add(new String("French 4H"));
-     allCourses.add(new String("French 5"));
-     allCourses.add(new String("French 5 AP"));
-     
-     //SPANISH 119-128
-     allCourses.add(new String("SPANISH\n------------------\n"));
-     allCourses.add(new String("Spanish 1"));
-     allCourses.add(new String("Spanish 2"));
-     allCourses.add(new String("Spanish 2H"));
-     allCourses.add(new String("Spanish 3"));
-     allCourses.add(new String("Spanish 3H"));
-     allCourses.add(new String("Spanish 4"));
-     allCourses.add(new String("Spanish 4H"));
-     allCourses.add(new String("Spanish 5"));
-     allCourses.add(new String("Spanish 5H"));
-     
-     //HAWAIIAN 129-134
-     allCourses.add(new String("\n\n\n\n\n\n\n\n\n\n\n\nHAWAIIAN -------\n"));
-     allCourses.add(new String("Hawaiian 1"));
-     allCourses.add(new String("Hawaiian 2"));
-     allCourses.add(new String("Hawaiian 3"));
-     allCourses.add(new String("Hawaiian 4"));
-     
-     //LANGUAGE 135-141
-     allCourses.add(new String("LANGUAGE -------\n"));
-     allCourses.add(new String("Chinese"));
-     allCourses.add(new String("Japanese"));
-     allCourses.add(new String("French"));
-     allCourses.add(new String("Spanish"));
-     allCourses.add(new String("Hawaiian"));
-     */
   }
   
+  //takes 2 indexs and returns arraylist filled with courses between those 2 indexs (eg: math 0-13)
   public static ArrayList<String> getArray(int numberOne,int numberTwo) {
     String tempString = "";
-    for (int i = numberOne; i < (numberTwo+1);i++) {     
+    for (int i = numberOne; i < (numberTwo+1);i++) { //adds to empty arraylist each course for that specific subject (math)
       tempString = allCourses.get(i);
       sendBack.add(tempString);
     }
     return sendBack;
   }
   
+  // takes survey info and saves it
   public static void inputSurvey (int surveyvalue, String course, int questionnum) {
     String bigArray = "";
     int temp;
+    // if they have just selected a course
     if (questionnum == 0) { 
-      
+      //finds the index of the user's course in allCourses
       for (int i = 0; i < allCourses.size()-1; i++) {
         if (allCourses.get(i).equals(course)) {
           index = i;
         }
       }
     }
+    // if they are currently filling out the survey, the average their input with the current interval
     else {
-      average(surveyvalue, questionnum);
+      average(surveyvalue, questionnum); 
     }
   }
   
+  //is only called when user has typed in answer to last question in survey
   public static ArrayList<String> outputSurvey (int surveyValue1,int surveyValue2,int surveyValue3,int surveyValue4) {
-    ArrayList<String> output = new ArrayList<String>();
+    ArrayList<String> output = new ArrayList<String>(); // final output that holds averages for each question for selected course
     
     output.add("AVERAGES FOR YOUR COURSE\n\nTo start over, type 'back'\n\n");
-    
-    output.add("QUESTION 1: On a scale of 1-10, how hard was/is the course overall?\n"+ question1.get(index));
-    
-    output.add("\nQUESTION 2: On a scale of 1-10, how much homework did/do you have for this course?\n"+ question2.get(index));
-    
-    output.add("\nQUESTION 3: On a scale of 1-10, how engaged did/do you feel in this course?\n"+ question3.get(index));
-    
+    output.add("QUESTION 1: On a scale of 1-10, how hard was/is the course overall?\n"+ question1.get(index));   
+    output.add("\nQUESTION 2: On a scale of 1-10, how much homework did/do you have for this course?\n"+ question2.get(index));    
+    output.add("\nQUESTION 3: On a scale of 1-10, how engaged did/do you feel in this course?\n"+ question3.get(index));    
     output.add("\nQUESTION 4: On a scale of 1-10, how much did you enjoy the class?\n"+ question4.get(index));
     return output;
   }
   
+  // averages user input with survey values already in arraylist
   public static void average(int surveyValue, int questionnum) {
     double tempNum = 1;
     double tempNum2 = 1;
     double tempNum3 = 1;
     
-    if (questionnum == 1) {
-      tempNum = question1.get(index);
-      System.out.println(tempNum);
-      tempNum2 = (tempNum)*(numEntries1.get(index));
-      tempNum3 = (tempNum2+ surveyValue)/(numEntries1.get(index));
-      question1.set(index, tempNum3);
-      numEntries1.set(index, numEntries1.get(index) + 1);
+    // same for all questions
+    if (questionnum == 1) { // if question number 1
+      tempNum = question1.get(index); //set tempNum equal to the value first question at the index of the user's selected course
+      tempNum2 = (tempNum)*(numEntries1.get(index)); //set tempNum2 = to original x the number of entries -- this way to expands the value so I can add and divide later
+      tempNum3 = (tempNum2+ surveyValue)/(numEntries1.get(index)); //sets tempNum3 =( expanded original + user input ) divided by number of entries 
+      question1.set(index, tempNum3); //sets the index for the user's course in question 1 equal to the new average
+      numEntries1.set(index, numEntries1.get(index) + 1); // adds 1 to number of entries
       
     }
+    //same as question 1
     else if (questionnum == 2) {
       tempNum = question2.get(index);
       tempNum2 = (tempNum)*(numEntries2.get(index));
@@ -277,13 +187,14 @@ public class RateMyClassSave {
       question4.set(index, tempNum3);
       numEntries4.set(index, numEntries4.get(index) + 1);
     }
-    
-    
   }
+  
+  // checks to see if the text is a real course in allCourses ArrayList
+  // Doesn't have a return type because I call it in the survey class and it crashes sometimes if I call a method and check instead of just a variable. 
   public static void isCourseTrue (String text) {
-    text = text.toLowerCase();
-    for (int p = 0; p < allCourses.size()-1; p++) {
-      if (allCourses.get(p).equals(text)) {
+    text = text.toLowerCase(); //sets to lowercase
+    for (int p = 0; p < allCourses.size()-1; p++) { //goes through each index in allCourses arraylist and checks to see if text is equal to any of them
+      if (allCourses.get(p).toLowerCase().equals(text)) { // if it does equal true, then sets isCourse boolean to true.
         isCourse = true;
       }
       else {}

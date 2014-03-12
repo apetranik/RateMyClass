@@ -1,4 +1,4 @@
-// Rate My Class View
+// Aliya Petranik -- Rate My Class 2014
 
 package RateMyClass;
 import java.awt.*;
@@ -46,24 +46,26 @@ public class RateMyClassView extends JPanel implements ActionListener {
     add(scrollPane, gridcon); // allows text area to be displayed
     add(textField, gridcon); // allows text field to be displayed  
   }
-  
-  public void actionPerformed(ActionEvent evt) { // controls action listener
+  // MOST IMPORTANT PART OF CLASS
+  public void actionPerformed(ActionEvent evt) { // controls action listener which is called when the user types something in 
     text = textField.getText(); //gets and saves text that the user types in
     textField.selectAll();
     String newText = text.toLowerCase(); // sets text to lowercase 
     realArray.clear();
-    realArray = RateMyClassDriver.getText(newText);
-    textArea.setText(" ");
+    realArray = RateMyClassDriver.getText(newText); //sets empty arraylist to equal what method getText returns
+    textArea.setText(" "); //clears screen
+    // only gets called for the first thing that the user types in becaues index 0 won't get deleted and it holds the text on the home screen. 
     if (counter == 0 && RateMyClassSurvey.isSubject(newText) == true) {
-      
       for (int i = 1; i < realArray.size(); i++) {
         textArea.append(realArray.get(i)+"\n");
       } 
       counter++;
     }
+    // displays all other text other than after user's first input
     else {
+      // 
       for (int i = 0; i < realArray.size(); i++) {
-        textArea.append(realArray.get(i)+"\n");
+        textArea.append(realArray.get(i)+"\n"); //goes through realArray and add it to the screen
       } 
     }
   }
@@ -81,8 +83,8 @@ public class RateMyClassView extends JPanel implements ActionListener {
   public static void main(String[] args) { // just displays the GUI like in grid world how it has to say "Show grid"
     javax.swing.SwingUtilities.invokeLater(new Runnable() {
       public void run() {
-        createAndShowGUI();
-      }
+        createAndShowGUI(); //just runs GUI -- just needs to show it. 
+      } 
     });
   }
 }
